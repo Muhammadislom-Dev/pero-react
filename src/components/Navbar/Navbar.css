@@ -1,0 +1,92 @@
+.navbar{
+    background: rgba(241, 250, 246, 0.5);
+    padding: 35px 0;
+}
+
+.navbar-page{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-name{
+    font-family: 'Gilroy-Medium';
+    font-size: 12px;
+    line-height: 14px;
+    color: #3A896A;
+    padding: 8px;
+}
+.navbar-box{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo{
+    padding: 8px;
+}
+
+.navbar-titles{
+    display: flex;
+    align-items: center;
+    border: 1px solid #3A896A;
+    border-radius: 4px;
+    width: 141.66px;
+    height: 27.52px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.navbar-list{
+    display: flex;
+    list-style: none;
+}
+.navbar-item{
+    margin: 20px;
+}
+
+.navbar-title{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logos{
+    width: 28px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.navbar-link{
+    text-decoration: none;
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    padding-bottom: 10px;
+    color: #3C3C3C;
+    transition: 0.5s;
+}
+
+.navbar-link:hover{
+    color: #3A896A;
+    border-bottom: 2px solid #3A896A;
+    /* padding-bottom: 5px; */
+}
+
+.navbar-phone{
+    text-decoration: none;
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #3A896A;
+    padding-bottom: 10px;
+    transition: 0.8s;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.navbar-phone:hover{
+    border-bottom: 2px solid #3A896A;
+}

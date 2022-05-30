@@ -1,0 +1,37 @@
+.section{
+    background-color: #3A896A;
+    padding: 25px 0;
+}
+
+.section-page{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-list{
+    list-style: none;
+    /* text-align: center; */
+    border-right: 2px solid #fff;
+    padding: 0 30px;
+}
+
+.section-name{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    text-align: center;
+}
+
+.section-title{
+    margin-top: 45px;
+}
+.section-lists{
+    margin-top: 45px;
+}
+
+.section-titles{
+    margin-top: 35px;
+}
