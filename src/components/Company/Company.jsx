@@ -36,36 +36,18 @@ const Company = () =>{
                 </div>
 
                 <div className="company-box">
-                    <ul className="company-lists">
-                        <li className="company-items company-titles">
-                            <div className="company-circle">
-                                <img src={car} alt="" className="company-pic" />
-                            </div>
-                        </li>
-                        <li className="company-items">
-                            <p className="company-surname">Доставка по Ташкенту</p>
-                        </li>
-                    </ul>
-                    <ul className="company-lists">
-                        <li className="company-items company-titles">
-                            <div className="company-circle">
-                                <img src={check} alt="" className="company-pic" />
-                            </div>
-                        </li>
-                        <li className="company-items">
-                            <p className="company-surname">Гарантия качества</p>
-                        </li>
-                    </ul>
-                    <ul className="company-lists">
-                        <li className="company-items company-titles">
-                            <div className="company-circle">
-                                <img src={center} alt="" className="company-pic" />
-                            </div>
-                        </li>
-                        <li className="company-items">
-                            <p className="company-surname">Служба поддержки 24/7</p>
-                        </li>
-                    </ul>
+                    <div className="company-list">
+                        <img src={car} alt="" className="company-pic" />
+                        <h5 className="company-names">Доставка по Ташкенту</h5>
+                    </div>
+                    <div className="company-list">
+                        <img src={check} alt="" className="company-pic" />
+                        <h5 className="company-names">Гарантия качества</h5>
+                    </div>
+                    <div className="company-list">
+                        <img src={center} alt="" className="company-pic" />
+                        <h5 className="company-names">Служба поддержки 24/7</h5>
+                    </div>
                 </div>
             </div>
         </div>

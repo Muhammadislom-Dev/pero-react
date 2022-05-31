@@ -1,49 +1,61 @@
 import './Section.css'
 
-import salfetka from '../../Assets/img/salfetka.png'
-import salfetka2 from '../../Assets/img/salfetka2.png'
-import salfetka1 from '../../Assets/img/salfetka1.png'
-import salfetka3 from '../../Assets/img/salfetka3.png'
+import pero from '../../Assets/img/milks.png'
+import icon from '../../Assets/img/Icon.png'
+import mwhite from '../../Assets/img/mwhite.png'
+import pero2 from '../../Assets/img/pero2.png'
+import pero1 from '../../Assets/img/pero1.png'
+import pero3 from '../../Assets/img/pero3.png'
 
 const Section = () =>{
     return(
         <div className="section">
             <div className="container">
                 <div className="section-page">
-                    <ul className="section-list section-lists">
-                        <li className="section-item">
-                            <img src={salfetka} alt="" className="section-img" />
-                        </li>
-                        <li className="section-item">
-                            <p className="section-name">Влажные салфетки</p>
-                        </li>
-                    </ul>
-                    <ul className="section-list section-titles">
-                        <li className="section-item">
-                            <img src={salfetka2} alt="" className="section-img" />
-                        </li>
-                        <li className="section-item">
-                            <p className="section-name">Бумажные cалфетки</p>
-                        </li>
-                    </ul>
-                    <ul className="section-list">
-                        <li className="section-item">
-                            <img src={salfetka1} alt="" className="section-img" />
-                        </li>
-                        <li className="section-item">
-                            <p className="section-name">Универсальные салфетки</p>
-                        </li>
-                    </ul>
-                    <ul className="section-list section-title">
-                        <li className="section-item">
-                            <img src={salfetka3} alt="" className="section-img" />
-                        </li>
-                        <li className="section-item">
-                            <p className="section-name">Влажные салфетки</p>
-                        </li>
-                    </ul>
+                    <div className="section-list">
+                        <div className="section-circle">
+                            <img src={pero} alt="" className="section-imgs" />
+                        </div>
+                        <div className='section-title'>
+                            <h3 className="section-name">Бумажные продукции</h3>
+                            <a href="#" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </a>
+                        </div>
+                        
+                    </div>
+
+                    <div className="section-list">
+                        <div className="section-circle">
+                            <img src={pero1} alt="" className="section-img" />
+                        </div>
+                        <div className='section-title'>
+                            <h3 className="section-name">Бумажные продукции</h3>
+                            <a href="#" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </a>
+                        </div>
+                    </div>
+
+                    <div className="section-list">
+                        <div className="section-circle">
+                            <img src={pero2} alt="" className="section-pic" />
+                        </div>
+                        <div className='section-title'>
+                            <h3 className="section-name">Бумажные продукции</h3>
+                            <a href="#" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </a>
+                        </div>
+                    </div>
+
+                    <div className="section-list">
+                        <div className="section-circle">
+                            <img src={pero3} alt="" className="section-pero" />
+                        </div>
+                        <div className='section-title'>
+                            <h3 className="section-name">Бумажные продукции</h3>
+                            <a href="#" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <img src={mwhite} alt="" className="section-white" />
         </div>
     )
 }
