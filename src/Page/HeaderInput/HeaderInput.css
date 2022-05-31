@@ -1,0 +1,14 @@
+.headerinput{
+    background-image: url("../../Assets/img/top.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* padding: 0 0 0 0; */
+    background-position: top 5% left 45%;
+    overflow: hidden;
+}
+
+.headerinput-img{
+    position: absolute;
+    top: 5%;
+    left: 88.5%;
+}
