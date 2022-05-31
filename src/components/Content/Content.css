@@ -1,0 +1,10 @@
+.content{
+    padding: 50px 0;
+}
+
+.content-list{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
