@@ -1,11 +1,9 @@
-import React from "react";
 import './Header.css'
 
-
-import icon from '../../Assets/img/Icon.png' 
+import icon from '../../Assets/img/Icon.png'
+import vector from '../../Assets/img/Vector.png'
+import guarantee from '../../Assets/img/guarantee.png'
 import lock from '../../Assets/img/lock.png'
-import feather from '../../Assets/img/feather.png'
-import guarente from '../../Assets/img/guarantee.png'
 import milk from '../../Assets/img/milk.png'
 
 const Header = () =>{
@@ -15,19 +13,19 @@ const Header = () =>{
                 <div className="header-page">
                     <div className="header-left">
                         <h2 className="header-name">Универсальные <span className="header-names">салфетки</span></h2>
-                        <a href="#" className="header-link">Посмотреть всё <img src={icon} className="header-icons" alt="" /> </a>
-
+                        <a href="#" className="header-link">Посмотреть всё <img src={icon} alt="" className="header-icon" /> </a>
+                          
                         <ul className="header-list">
                             <li className="header-item">
-                                <span className="header-title"><img src={feather} alt="" className="header-img" /></span>
+                                <div className="header-span"><img src={vector} alt="" className="header-img" /></div>
                                 <p className="header-text">Плотность и мягкость</p>
                             </li>
                             <li className="header-item">
-                                <span className="header-title"><img src={guarente} alt="" className="header-img" /></span>
-                                <p className="header-text">Гарантия высокого качества </p>
+                                <div className="header-span"><img src={guarantee} alt="" className="header-imgs" /></div>
+                                <p className="header-text">Гарантия высокого качества</p>
                             </li>
                             <li className="header-item">
-                                <span className="header-title"><img src={lock} alt="" className="header-img" /></span>
+                                <div className="header-span"><img src={lock} alt="" className="header-img" /></div>
                                 <p className="header-text">Безопасность продукта</p>
                             </li>
                         </ul>
@@ -35,10 +33,10 @@ const Header = () =>{
 
                     <div className="header-right">
                         <div className="header-circle">
-                            <img src={milk} alt="" className="header-milk" />
+                            <img src={milk} alt="" className="header-pictures" />
                         </div>
 
-                        <ul className="header-lists">
+                        <ul className="header-title">
                             <li className="header-items">
                                 <button className="header-btn">UZ</button>
                             </li>
