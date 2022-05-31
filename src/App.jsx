@@ -1,16 +1,18 @@
 import React from "react";
-import Company from "./components/Company/Company";
-import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
+import Home from "./Page/Home/Home";
+import HeaderInput from "./Page/HeaderInput/HeaderInput";
 import Section from "./components/Section/Section";
+import Rating from "./components/Rating/Rating";
+import Brand from './Page/Brand/Brand'
 
 function App() {
   return (
     <div className="App">
-        <Navbar />
-        <Header />
+        <HeaderInput />
+        <Home />
         <Section />
-        <Company />
+        <Rating />
+        <Brand />
     </div>
   );
 }
