@@ -1,11 +1,12 @@
 import './Section.css'
 
 import pero from '../../Assets/img/milks.png'
-import icon from '../../Assets/img/Icon.png'
 import mwhite from '../../Assets/img/mwhite.png'
 import pero2 from '../../Assets/img/pero2.png'
 import pero1 from '../../Assets/img/pero1.png'
 import pero3 from '../../Assets/img/pero3.png'
+
+import icon from '../../Assets/img/strelka.png'
 
 const Section = () =>{
     return(

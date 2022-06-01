@@ -7,6 +7,9 @@ import car from '../../Assets/img/car.png'
 import check from '../../Assets/img/check.png'
 import center from '../../Assets/img/callcenter.png'
 
+import Download from '../../SVG/Download'
+import Arrow from '../../SVG/Arrow'
+
 const Company = () =>{
     return(
         <div className="company">
@@ -24,11 +27,13 @@ const Company = () =>{
 
                         <div className="company-title">
                             <button className="company-button">
-                                <img src={arrow} alt="" className="company-imgs" />
+                                {/* <img src={arrow} alt="" className="company-imgs" /> */}
+                                    <Arrow />
                                  Подробнее
                             </button>
                             <button className="company-btn">
-                                <img src={download} alt="" className="company-icon" />
+                                {/* <img src={download} alt="" className="company-icon" /> */}
+                                <i className="fa fa-download company-icon" aria-hidden="true"></i>
                                 Скачать каталог
                             </button>
                         </div>
