@@ -1,18 +1,22 @@
 .box{
-    padding-bottom: 100px;
+    padding-bottom: 80px;
 }
 .box-page{
     display: flex;
+    justify-content: center;
 }
 .box-list{
-    transform: rotate(12.53deg);
-    margin: 0 50px;
+    margin: 0 30px;
+    animation-name: BoxYellows;
+    animation-duration: 22s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .box-span{
     background-color: black;
-    width: 170px;
-    height: 55px;
+    width: 150px;
+    height: 45px;
 }
 
 .box-pero{
@@ -21,65 +25,151 @@
     font-family: 'Pangolin';
     font-style: normal;
     line-height: 11px;
-    padding-top: 5px;
+    font-size: 8.83872px;
+    padding-top: 6px;
     padding-left: 7px;
+    font-family: 'Pangolin', cursive;
 }
 
 .box-name{
     color: #fff;
     height: 0;
     line-height: 23px;
-    font-size: 18px;
+    font-size: 13.6417px;
     font-weight: 400;
     padding-bottom: 7px;
     padding-left: 5px;
+    margin-top: 5px;
+    font-family: 'Pangolin', cursive;
 }
 
 .box-yellow{
     background: #F8BC3B;
-    width: 170px;
-    height: 120px;
+    width: 150px;
+    height: 100px;
+}
+
+.box-img{
+    margin-left: -15px;
+    margin-top: -10px;
 }
 
 .box-lists{
-    transform: rotate(-10.95deg);
-    margin: 0 50px;
+    /* transform: rotate(-10.95deg); */
+    margin: 0 30px;
+    animation-name: BoxLists;
+    animation-duration: 22s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .box-green{
     background: #3A896A;
-    width: 170px;
-    height: 130px;
+    width: 150px;
+    height: 110px;
 }
 
 .box-circle{
-    transform: rotate(2.75deg);
-    margin: 0 50px;
+    /* transform: rotate(2.75deg); */
+    margin: 0 30px;
+    animation-name: BoxCircle;
+    animation-duration: 22s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .box-orange{
     background: #FF5634;
-    width: 170px;
-    height: 130px;
+    width: 150px;
+    height: 110px;
 }
 
 .box-pics{
-    height: 130px;
+    height: 120px;
+    margin-left: 10px;
     transform: rotate(-3deg);
+    margin-top: -7px;
 }
 
 .box-picture{
     margin-left: -35px;
-    height: 150px;
+    height: 130px;
     margin-top: -20px;
 }
 
 .box-right{
     transform: rotate(-17.72deg);
-    margin: 0 50px;
+    margin: 0 30px;
+    animation-name: BoxRight;
+    animation-duration: 22s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .box-yellows{
     background-color: #FDB52A;
     text-align: center;
+    height: 100px;
 }
+
+.box-pic{
+    margin-top: -10px;
+}
+
+@keyframes BoxYellows {
+    
+    0%{
+        transform: rotate(0deg);
+    }
+    35%{
+    transform: rotate(35deg);
+    }
+
+    70%{
+        transform: rotate(-30deg);
+    }
+}
+
+@keyframes BoxCircle {
+    
+    0%{
+        transform: rotate(0deg);
+    }
+    35%{
+    transform: rotate(35deg);
+    }
+
+    70%{
+        transform: rotate(-30deg);
+    }
+}
+ 
+    
+@keyframes BoxRight {
+    
+    0%{
+        transform: rotate(0deg);
+    }
+    35%{
+    transform: rotate(-35deg);
+    }
+
+    70%{
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes BoxLists {
+    
+    0%{
+        transform: rotate(0deg);
+    }
+    35%{
+    transform: rotate(-35deg);
+    }
+
+    70%{
+        transform: rotate(30deg);
+    }
+}
+ 

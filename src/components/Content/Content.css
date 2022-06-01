@@ -5,6 +5,19 @@
 .content-list{
     display: flex;
     list-style: none;
-    justify-content: space-between;
+    /* justify-content: space-evenly; */
     align-items: center;
+    justify-content: center;
+}
+
+.content-item{
+    margin: 20px 20px;
+}
+
+.content-img{
+    transition: 0.5s;
+    cursor: pointer;
+}
+.content-img:hover{
+    transform: scale(1.2);
 }

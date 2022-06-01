@@ -1,0 +1,91 @@
+.footer{
+    background-color: #3A896A;
+    padding: 40px 0;
+}
+
+.footer-text{
+    width: 360px;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Pangolin', cursive;
+}
+
+.footer-img{
+    margin-top: 20px;
+}
+
+.footer-list{
+    list-style: none;
+}
+
+.footer-link{
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: 'Pangolin', cursive;
+    transition: 0.5s;
+    padding-bottom: 5px;
+    position: relative;
+    display: block;
+}
+
+.footer-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 2px;
+    transform: scaleX(0);
+    background: #fff;
+    border-radius: 20px 10px 0px 0px;
+    transition: 0.5s;
+}
+
+
+.footer-link:hover::before {
+    transform: scaleX(1);
+}
+
+
+.fa-twitter, .fa-instagram, .fa-facebook{
+    color: #fff;
+    font-size: 25px;
+    transition: 0.3s;
+    padding: 10px;
+}
+
+.fa-facebook:hover, .fa-instagram:hover, .fa-twitter:hover{
+    transform: scale(1.3);
+    padding: 10px;
+}
+
+.footer-items{
+    margin: 10px;
+}
+
+.footer-title{
+    display: flex;
+    list-style: none;
+    margin-left: -48px;
+}
+
+.footer-name{
+    color: #fff;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 500;
+    font-family: 'Pangolin', cursive;
+}
+
+.footer-page{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-item{
+    margin: 10px;
+}
