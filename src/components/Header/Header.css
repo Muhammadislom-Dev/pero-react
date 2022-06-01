@@ -1,22 +1,37 @@
 .header{
-    padding: 60px 0;
-    background-image: url("../../Assets/img/mgreen.png"), url("../../Assets/img/mgren.png");
-    background-repeat: no-repeat;
-    background-position: top 95% left 95%, top -100% left -3%;
+    padding: 60px 0 20px 0;
+    /* background-image: url("../../Assets/img/mgreen.png"), url("../../Assets/img/mgren.png"); */
+    /* background-repeat: no-repeat; */
+    /* background-position: top 95% left 95%, top -260% left 0%; */
+    position: relative;
+}
+
+.header-green{
+    position: absolute;
+    top: 58%;
+    left: 82%;
+}
+
+.header-gren{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: -15%;
+    left: 1.8%;
 }
 
 .header-name{
     font-style: normal;
     font-weight: 400;
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 40px;
+    line-height: 40px;
     color: #1c1c1c;
     width: 120px;
     margin-left: 60px;
-    font-family: 'SF Pro Display';
+    font-family: 'Pangolin', cursive;
 }
 .header-names{
-    color: #3A896A;;
+    color: #3A896A;
 }
 
 .header-link{
@@ -29,6 +44,7 @@
     line-height: 36px;
     color: #3A896A;
     margin-left: 60px;
+    font-family: 'Pangolin', cursive;
 }
 
 .header-icon{
@@ -36,31 +52,28 @@
 }
 
 .header-span{
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     background-color: #3A896A;
     border-radius: 50%;
-    padding: 5px;
+    transition: 0.5s;
+    border: none;
+    cursor: pointer;
 }
 
-.header-img{
-    margin-left: 10px;
-    margin-top: 9px;
-}
 
-.header-imgs{
-    margin-left: 8px;
-    margin-top: 9px;
-}
 
 .header-list{
     display: flex;
     list-style: none;
     margin-left: 20px;
+    padding-top: 50px;
 }
 
 .header-text{
     width: 100px;
+    font-family: 'Pangolin', cursive;
+    font-weight: 500;
 }
 .header-item{
     margin: 0 5px;
@@ -68,23 +81,32 @@
 
 .header-page{
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
 }
 
 .header-circle{
     width: 330px;
-    height: 300px;
+    height: 330px;
     background-color: #3A896A;
     border-radius: 50%;
 }
 
 .header-pictures{
-    margin-left: -26px;
+    margin-left: -42px;
+    margin-top: 10px;
+    width: 370px;
+    animation-name: HeaderMilk;
+    animation-duration: 22s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.header-left{
+    padding: 0 100px;
 }
 
 .header-right{
-    padding: 0 180px;
+    padding: 0 50px;
     display: flex;
     align-items: center;
 }
@@ -100,6 +122,14 @@
     cursor: pointer;
     color: #3A896A;  
     font-family: 'Pangolin';
+    transition: 0.5s;
+    padding: 5px 8px;
+    border: 2px solid transparent;
+}
+
+.header-btn:hover{
+    border: 2px solid #3A896A;
+    border-radius: 5px;
 }
 
 .header-title{
@@ -107,5 +137,47 @@
 }
 
 .header-items{
-    margin: 10px;
+    /* margin: 20px 10px; */
+    padding: 20px 0;
+}
+
+.header-img{
+    padding: 5px 0px;
+    transition: 1.2s;
+}
+.header-imgs{
+    transition: 0.8s;
+    padding: 5px 0px;
+}
+
+/* .header-img:hover path{
+    stroke: #3A896A;
+    fill: #3A896A;
+} */
+
+
+
+.header-span:hover{
+    /* background-color: #f2f2f2; */
+    border: 1px solid #3A896A;
+    transform: scale(1.2);
+}
+/* .header-imgs:hover path{
+    stroke: #fff;
+    fill: #3A896A;
+} */
+
+
+@keyframes HeaderMilk {
+    
+    0%{
+        transform: rotate(0deg);
+    }
+    35%{
+        transform: rotate(25deg);
+    }
+
+    70%{
+        transform: rotate(-25deg);
+    }
 }
