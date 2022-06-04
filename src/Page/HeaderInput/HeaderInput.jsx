@@ -8,9 +8,11 @@ import Box from '../../components/Box/Box'
 const HeaderInput = () =>{
     return(
         <div className="headerinput">
+            <div className="container">
             <Navbar />
             <Header />
-            <Box />
+            </div>
+            {/* <Box /> */}
             <img src={sticky} alt="" className="headerinput-img" />
         </div>
     )
