@@ -1,5 +1,5 @@
 .company{
-    padding: 150px 0 0 0;
+    padding-bottom:30px ;
 }
 
 .company-page{
@@ -114,12 +114,16 @@
     align-items: center;
 }
 
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
 
 .company-box{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 0 120px 0;
+    padding: 50px 0 50px 0;
 }
 
 .company-list{
@@ -139,4 +143,192 @@
     color: #3A896A;
     margin-top: 8px;
     font-family: 'Pangolin', cursive;
+}
+
+@media (max-width:1520px) {
+    
+    .container{
+        width: 1400px;
+    }
+}
+
+@media (max-width:1420px) {
+    
+    .container{
+        width: 1300px;
+    }
+}
+
+@media (max-width:1320px) {
+    
+    .container{
+        width: 1200px;
+    }
+}
+
+@media (max-width:1220px) {
+    
+    .container{
+        width: 1160px;
+    }
+}
+
+@media (max-width:1160px) {
+    
+    .container{
+        width: 1020px;
+    }
+}
+
+@media (max-width:1020px) {
+    
+    .container{
+        width: 900px;
+    }
+
+    .company-right{
+        padding: 0 50px;
+    }
+}
+
+
+@media (max-width:920px) {
+    
+    .container{
+        width: 800px;
+    }
+
+    .company-right{
+        padding: 0 40px;
+    }   
+}
+
+@media (max-width:820px) {
+    
+    .container{
+        width: 700px;
+    }
+
+    .company-img{
+        width: 280px;
+        height: 210px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width:720px) {
+    
+    .container{
+        width: 600px;
+    }
+    .company-page{
+        flex-direction: column;
+    }
+
+    .company-img{
+        width: 400px;
+        height: 240px;
+    }
+    .company-right{
+        margin-top: 15px;
+    }
+
+    .company-list{
+        margin: 0 60px;
+    }
+    .company-names{
+        font-size: 14px;
+        line-height: 18px;
+        margin: 0;
+    }
+}
+
+@media (max-width:620px) {
+    
+    .container{
+        width: 500px;
+    }
+
+    .company-list{
+        margin: 0 22px;
+    }
+    .company-names{
+        font-size: 13px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width:520px) {
+    
+    .container{
+        width: 400px;
+    }
+
+    .company-list{
+        margin: 0 15px;
+    }
+
+    .company-img{
+        width: 360px;
+        height: 240px;
+    }
+    .company-names{
+        font-size: 10px;
+        line-height: 18px;
+    }
+
+    .company-text{
+        width: 348px;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .company-btn{
+        width: 140px;
+        font-size: 12px;
+    }
+    .company-button{
+        width: 130px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width:420px) {
+    
+    .container{
+        width: 350px;
+    }
+    .company-names{
+        font-size: 9.70782px;
+        line-height: 10px;
+    }
+
+    .company-pic{
+        width: 31px;
+        height: 35px;
+    }
+
+    .company-box{
+        justify-content: space-between;
+        display: flex;
+    }
+    .company-list{
+        margin: 0;
+        padding: 0;
+    }
+
+    .company-img{
+        width: 300px;
+        height: 220px;
+    }
+
+    .company-text{
+        font-size: 10.208px;
+        line-height: 13px;
+        width: 310px;
+    }
+
+    .company-right{
+        padding: 0;
+    }
 }

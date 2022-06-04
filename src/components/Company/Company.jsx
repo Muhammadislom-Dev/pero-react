@@ -1,25 +1,26 @@
 import './Company.css'
-
+import React from 'react';
+import Fade from 'react-reveal/Fade';
 import factory from '../../Assets/img/factory.png'
-import download from '../../Assets/img/download.png'
-import arrow from '../../Assets/img/arrow.png'
 import car from '../../Assets/img/car.png'
 import check from '../../Assets/img/check.png'
 import center from '../../Assets/img/callcenter.png'
 
-import Download from '../../SVG/Download'
 import Arrow from '../../SVG/Arrow'
 
 const Company = () =>{
     return(
-        <div className="company">
+        <div id='company' className="company">
             <div className="container">
                 <div className="company-page">
-                    <div className="company-left">
-                        <img src={factory} alt="" className="company-img" />
-                    </div>
+                    <Fade left>
+                        <div className="company-left">
+                            <img src={factory} alt="" className="company-img" />
+                        </div>
+                    </Fade>
 
-                    <div className="company-right">
+                   <Fade right>
+                   <div className="company-right">
                         <h3 className="company-name">О Компании</h3>
                         <p className="company-text">ООО International Paper является крупнейшим производителем бумажных изделий санитарно-гигиенического назначения. Наша компания ведёт свою деятельность с 2000 года под брендом ELMA.</p>
 
@@ -27,17 +28,16 @@ const Company = () =>{
 
                         <div className="company-title">
                             <button className="company-button">
-                                {/* <img src={arrow} alt="" className="company-imgs" /> */}
                                     <Arrow />
                                  Подробнее
                             </button>
                             <button className="company-btn">
-                                {/* <img src={download} alt="" className="company-icon" /> */}
                                 <i className="fa fa-download company-icon" aria-hidden="true"></i>
                                 Скачать каталог
                             </button>
                         </div>
                     </div>
+                   </Fade>
                 </div>
 
                 <div className="company-box">
