@@ -1,4 +1,7 @@
 import './Header.css'
+import React, { Component } from 'react';
+import { withTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
 import icon from '../../Assets/img/Icon.png'
 import vector from '../../Assets/img/Vector.png'
@@ -14,14 +17,24 @@ import Lock from '../../SVG/Lock'
 import Check from '../../SVG/Check'
 
 
-const Header = () =>{
+
+
+
+class Header extends Component{
+
+    handleClick(lang) {
+        i18next.changeLanguage(lang)
+      }
+      
+      render() {
+        const { t } = this.props;
 
     return(
-        <div className="header">
-            <div className="container ">
+        <div id='home' className="header">
+            <div className="container">
                 <div className="header-page">
                     <div className="header-left">
-                        <h2 className="header-name">Универсальные <span className="header-names">салфетки</span></h2>
+                        <h2 className="header-name">{t('Thanks.1')}   <br />  <span className="header-names">{t('Why.1')}</span></h2>
                         <a href="#" className="header-link">Посмотреть всё <img src={icon} alt="" className="header-icon" /> </a>
                           
                         <ul className="header-list">
@@ -53,16 +66,15 @@ const Header = () =>{
                         <div className="header-circle">
                             <img src={milk} alt="" className="header-pictures" />
                         </div>
-
                         <ul className="header-title">
                             <li className="header-items">
-                                <button className="header-btn">UZ</button>
+                                <button onClick={() => this.handleClick('uz')} className="header-btn">UZ</button>
                             </li>
                             <li className="header-items">
-                                <button className="header-btn">RU</button>
+                                <button onClick={() => this.handleClick('ru')} className="header-btn">RU</button>
                             </li>
                             <li className="header-items">
-                                <button className="header-btn">EN</button>
+                                <button onClick={() => this.handleClick('en')} className="header-btn">EN</button>
                             </li>
                         </ul>
                     </div>
@@ -74,4 +86,5 @@ const Header = () =>{
         </div>
     )
 }
-export default Header
+}
+export default withTranslation()(Header)
