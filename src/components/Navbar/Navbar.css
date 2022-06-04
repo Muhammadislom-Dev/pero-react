@@ -62,11 +62,25 @@
 }
 
 .navbar-logos{
-    width: 28px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 }
 
+
+.navbar-button{
+    background-color: transparent;
+    width: 25px;
+    height: 20px;
+}
+
+.navbar-btn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
 
 
 .navbar-link {
@@ -135,6 +149,13 @@
     transition: 0.3s;
 }
 
+.modal{
+    position: relative;
+    width: 800px;
+    height: 400px;
+}
+
+
 .navbar-phone:hover {
     color: #3A896A;
 }
@@ -145,6 +166,23 @@
 
 .navbar--container{
     width: 950px;
+}
+
+.modal-remove{
+    width: 25px;
+    height: 25px;
+}
+.modal-btn{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 4%;
+    left: 42%;
+    transform: translateX(-150%);
+    cursor: pointer;
 }
 
 .navbar-titles:hover{
@@ -161,3 +199,212 @@
     transition: 1.8s;
 }
 
+
+/* Modal */
+
+.modal-list{
+    list-style:none;
+    margin-top: 70px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.modal-item{
+    margin: 15px 0;
+}
+
+.modal-items{
+    display: flex;
+    align-items: center;
+}
+.modal-phone{
+    text-decoration: none;
+    color: #3A896A;
+    font-family: 'Pangolin', cursive;
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.modal-titles{
+    display: flex;
+    align-items: center;
+    border: 1px solid #3A896A;
+    border-radius: 4px;
+    width: 125px;
+    height: 25px;
+    font-weight: 400;
+    font-size: 10px;
+    background-color: transparent;
+    color: #3A896A;
+    line-height: 15px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.modal-titles:hover{
+    background-color: #3A896A;
+    color: #fff;
+    transform: scale(1.15);
+    font-size: 10px;
+}
+
+
+.modal-link{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 14px;
+    color: #3A896A;
+    font-family: 'Pangolin', cursive;
+    text-decoration: none;
+}
+
+@media (max-width:1520px) {
+    
+    .container{
+        width: 1400px;
+    }
+
+    .navbar-page{
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width:1420px) {
+    
+    .container{
+        width: 1300px;
+    }
+
+    .navbar-page{
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width:1320px) {
+    
+
+    .container{
+        width: 1200px;
+    }
+}
+
+@media (max-width:1220px) {
+    
+    .container{
+        width: 1140px;
+    }
+}
+
+@media (max-width:1160px) {
+    
+    .container{
+        width: 1000px;
+    }
+}
+
+@media (max-width:1020px) {
+    
+    .container{
+        width: 900px;
+    }
+}
+
+@media (max-width:920px) {
+    
+    .container{
+        width: 800px;
+    }
+
+    .navbar-titles{
+        width: 125px;
+        font-size: 10px;
+        line-height: 18px;
+    }
+    .navbar-item{
+        margin: 10px;
+    }
+    .navbar-link{
+        line-height: 18px;
+    }
+    .navbar-phone{
+        font-size: 12px;
+    }
+    .navbar-img{
+        width: 110px;
+    }
+}
+
+@media (max-width:820px) {
+    
+    .container{
+        width: 700px;
+    }
+
+    
+    .navbar-titles{
+        width: 108px;
+        font-size: 8px;
+        line-height: 10px;
+    }
+    .navbar-item{
+        margin: 8px;
+    }
+    .navbar-link{
+        line-height: 14px;
+        font-size: 10px;
+    }
+    .navbar-phone{
+        font-size: 10px;
+    }
+    .navbar-img{
+        width: 90px;
+        object-fit: cover;
+    }
+}
+
+
+@media (max-width:720px) {
+    
+    .container{
+        width: 600px;
+    }
+
+    .navbar-list, .navbar-titles, .navbar-title{
+        display: none;
+    }
+
+    .navbar-btn{
+        display: block;
+    }
+    .navbar-page{
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar-img{
+        width: 150px;
+    }
+}
+
+@media (max-width:620px) {
+    
+    .container{
+        width: 500px;
+    }
+}
+
+@media (max-width:520px) {
+    
+    .container{
+        width: 400px;
+    }
+}
+
+@media (max-width:420px) {
+    
+    .container{
+        width: 300px;
+    }
+}
