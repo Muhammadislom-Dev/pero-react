@@ -1,9 +1,10 @@
-.container{
-    width: 1140px;
-    margin:0 auto;
-}
-
 body{
     text-decoration: none;
     list-style: none;
+}
+
+.App{
+    /* background-image: url("./Assets/img/aps.jpg"); */
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
