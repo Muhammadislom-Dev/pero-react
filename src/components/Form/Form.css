@@ -1,5 +1,6 @@
 .form{
     padding: 50px 0;
+    /* background-size: ; */
 }
 
 .form-list{
@@ -49,6 +50,7 @@
     padding: 10px 10px;
     font-family: 'Pangolin', cursive;
     background-color: transparent;
+    resize: none;
 }
 
 .form-text::placeholder{
@@ -76,3 +78,83 @@
     color: #3A896A;
     transform: scale(1.1);
 }
+
+.contact-span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+
+.contact-input {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 50px;
+    color: #000000;
+    padding: 2px 20px;
+    width: 224px;
+    background: #F8F8F8;
+    border: 1px solid #E7E7E7;
+    box-sizing: border-box;
+    border-radius: 6px;
+    outline: none;   
+}
+
+.input-error{
+    border: 1px solid red;
+}
+.tel-error, .error-info{
+    border: 1px solid red;
+}
+
+.error-text{
+    color: red;
+    display: none;
+    font-size: 13px;
+    padding-top: 3px;  
+}
+.error-text1{
+    color: red;
+    display: block;
+}
+.tel-errors{
+    color: red;
+    display: none;
+    font-size: 13px;
+    padding-top: 3px; 
+}
+.info-errors{
+    color: red;
+    display: none;
+    font-size: 13px;
+    padding-top: 3px; 
+}
+.error-info{
+    color: red;
+    display: block;
+   
+}
+.error-info1{
+    color: red;
+    
+    display: block;
+}
+.error-tel1{
+    color: red;
+    display: block;
+}
+
+
+@media (max-width:420px) {
+    
+    .container{
+        width: 350px;
+    }
+
+    .contact-input{
+        width: 310px;
+        height: 51.22px;
+    }
+}
+
