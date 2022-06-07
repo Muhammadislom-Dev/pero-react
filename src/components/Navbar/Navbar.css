@@ -46,6 +46,7 @@
     margin-left: 40px;
     cursor: pointer;
     transition: 0.8s;
+    text-decoration: none;
 }
 
 .navbar-list{
@@ -179,8 +180,8 @@
     width: 25px;
     height: 25px;
     position: absolute;
-    top: 4%;
-    left: 42%;
+    top: 6%;
+    left: 48%;
     transform: translateX(-150%);
     cursor: pointer;
 }
@@ -189,7 +190,7 @@
     background-color: #3A896A;
     color: #fff;
     transform: scale(1.2);
-    font-size: 12px;
+    font-size: 10px;
 }
 
 
@@ -204,13 +205,13 @@
 
 .modal-list{
     list-style:none;
-    margin-top: 70px;
-    margin-left: 0;
+    margin-top: 90px;
+    margin-left: -40px;
     margin-right: 0;
 }
 
 .modal-item{
-    margin: 15px 0;
+    margin: 20px 0;
 }
 
 .modal-items{
@@ -234,12 +235,13 @@
     width: 125px;
     height: 25px;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 9px;
     background-color: transparent;
     color: #3A896A;
     line-height: 15px;
     cursor: pointer;
     transition: 0.8s;
+    text-decoration: none;
 }
 
 .modal-titles:hover{

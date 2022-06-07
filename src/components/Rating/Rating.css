@@ -208,4 +208,10 @@
         line-height: 15px;
         margin-top: -25px;
     }
+    .rating-texts{
+        font-size: 12.0473px;
+        line-height: 15px;
+        width: 100px;
+        margin-top: -25px;
+    }
 }
