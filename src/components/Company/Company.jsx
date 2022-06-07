@@ -31,10 +31,10 @@ const Company = () =>{
                                     <Arrow />
                                  Подробнее
                             </button>
-                            <button className="company-btn">
+                            <a type='download'  className="company-btn">
                                 <i className="fa fa-download company-icon" aria-hidden="true"></i>
                                 Скачать каталог
-                            </button>
+                            </a>
                         </div>
                     </div>
                    </Fade>

@@ -51,7 +51,7 @@ const Footer = () =>{
                         </li>
                     </ul>
 
-                    <ul className="footer-list">
+                    <ul className="footer-list footer__list">
                         <li className="footer-item">
                             <h3 className="footer-name">Terms</h3>
                         </li>
