@@ -16,6 +16,7 @@
     animation-duration: 22s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    cursor: pointer;
 }
 
 .box-span{
@@ -60,7 +61,7 @@
 }
 
 .box-lists{
-    /* transform: rotate(-10.95deg); */
+    cursor: pointer;
     margin: 0 30px;
     animation-name: BoxLists;
     animation-duration: 22s;
@@ -75,12 +76,12 @@
 }
 
 .box-circle{
-    /* transform: rotate(2.75deg); */
     margin: 0 30px;
     animation-name: BoxCircle;
     animation-duration: 22s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    cursor: pointer;
 }
 
 .box-orange{
@@ -109,6 +110,7 @@
     animation-duration: 22s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    cursor: pointer;
 }
 
 .box-yellows{
@@ -127,11 +129,11 @@
         transform: rotate(0deg);
     }
     35%{
-    transform: rotate(35deg);
+    transform: rotate(30deg);
     }
 
     70%{
-        transform: rotate(-30deg);
+        transform: rotate(-25deg);
     }
 }
 
@@ -141,11 +143,11 @@
         transform: rotate(0deg);
     }
     35%{
-    transform: rotate(35deg);
+    transform: rotate(30deg);
     }
 
     70%{
-        transform: rotate(-30deg);
+        transform: rotate(-25deg);
     }
 }
  
@@ -156,11 +158,11 @@
         transform: rotate(0deg);
     }
     35%{
-    transform: rotate(-35deg);
+    transform: rotate(-30deg);
     }
 
     70%{
-        transform: rotate(30deg);
+        transform: rotate(25deg);
     }
 }
 
@@ -170,11 +172,11 @@
         transform: rotate(0deg);
     }
     35%{
-    transform: rotate(-35deg);
+    transform: rotate(-30deg);
     }
 
     70%{
-        transform: rotate(30deg);
+        transform: rotate(25deg);
     }
 }
  
@@ -333,6 +335,6 @@
 @media (max-width:420px) {
     
     .container{
-        width: 350px;
+        width: 300px;
     }
 }

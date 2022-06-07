@@ -1,6 +1,6 @@
 import './Box.css'
 
-import pero from '../../Assets/img/salfetka.png'
+import pero from '../../Assets/img/peros.svg'
 import pero1 from '../../Assets/img/pero1.png'
 import pero2 from '../../Assets/img/pero2.png'
 import pero3 from '../../Assets/img/peros.png'
