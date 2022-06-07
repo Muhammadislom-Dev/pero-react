@@ -15,7 +15,7 @@ const Rating = () =>{
                         <p className="rating-text">Лет мы на рынке Узбекистана</p>
                     </div>
                     <div className="rating-list">
-                        <p className="rating-number"><Fade top big cascade>200+</Fade></p>
+                        <p className='rating-number'><Fade top big cascade>200+</Fade></p>
                         <p className="rating-text">Более продуктов на рынке</p>
                     </div>
                     <div className="rating-list">

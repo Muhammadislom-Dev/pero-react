@@ -6,17 +6,16 @@ import call from '../../Assets/img/mp3.png'
 import Toogle from '../../SVG/Toogle'
 import button from '../../Assets/img/btn.jpg'
 import Modal from 'react-modal';
-import remove from '../../Assets/img/remove.png'
-import { AiFillCloseCircle } from 'react-icons/fa';
+import remove from '../../Assets/img/cross.png'
 
 const customStyles = {
   content: {
-    top: '52%',
+    top: '57%',
     left: '100%',
     right: '0%',
     bottom: 'auto',
-    marginRight: '-100%',
-    height: '100vh',
+    marginRight: '-87%',
+    height: '115vh',
     transform: 'translate(-50%, -50%)',
     backgroundColor: '#f2f2f2'
   },
@@ -36,7 +35,6 @@ const Navbar = () =>{
     }
   
     function afterOpenModal() {
-      // references are now sync'd and can be accessed.
       subtitle.style.color = '#f00';
     }
   
@@ -50,12 +48,14 @@ return(
     <div className="container navbar--container">
         <div className="navbar-page">
             <div className="navbar-box">
-                <img src={pero} alt="" className="navbar-img" />
-                <button className="navbar-titles">
-                    {/* <img src={toggle} alt="" className="" /> */}
+                <Link to="/">
+                    <img src={pero} alt="" className="navbar-img" />
+                </Link>
+
+                <a href="#product" className="navbar-titles">
                     <Toogle />
                     Наша продукция
-                </button>
+                </a>
             </div>
             <ul className="navbar-list">
                 <li className="navbar-item">
@@ -114,11 +114,11 @@ return(
                 <Link href="+998911770077" className="modal-phone">(91) 177 00 77</Link>
             </li>
             <li className="modal-item">
-                <button className="modal-titles">
+                <a href="#product" className="modal-titles">
                     {/* <img src={toggle} alt="" className="" /> */}
                     <Toogle />
                     Наша продукция
-                </button>
+                </a>
             </li>
         </ul>
       </Modal>
