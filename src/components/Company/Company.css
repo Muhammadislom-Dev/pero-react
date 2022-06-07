@@ -41,9 +41,6 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
     color: #3A896A;
     margin: 10px;
     cursor: pointer;
@@ -61,6 +58,7 @@
 .company-button:hover{
     color: #fff;
     background-color: #3A896A;
+    transform: scale(1.2);
 }
 
 .company-img{
@@ -99,14 +97,16 @@
     color: #fff;
     margin: 10px;
     text-align: center;
+    text-decoration: none;
     cursor: pointer;
     font-family: 'Pangolin', cursive;
     transition: 0.8s;
 }
 
 .company-btn:hover{
-    background-color: #fff;
+    background-color: transparent;
     color: #3A896A;
+    transform: scale(1.15);
 }
 
 .company-title{
@@ -296,7 +296,7 @@
 @media (max-width:420px) {
     
     .container{
-        width: 350px;
+        width: 330px;
     }
     .company-names{
         font-size: 9.70782px;
