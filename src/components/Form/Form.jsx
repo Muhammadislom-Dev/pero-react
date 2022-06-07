@@ -1,7 +1,6 @@
 import './Form.css'
 import * as React from 'react';
 import { useState } from "react"
-// import Modal from '../Modal/Modal';
 
 const Form = () =>{
 
@@ -89,16 +88,18 @@ const Form = () =>{
                     <h3 className="form-name">Для сотрудничества дополните форму</h3>
 
                     <form id="myForm" onSubmit={formBtn}  className="form-list">
-                        <label htmlFor="">
+                        <label className='form-label'>
                             <input name="name" id="name" type="text"  placeholder="Ismingizni kiriting" className=" form-input" />
                             <p className="error-text" id='errorText'>
                                 Siz ismingizni kiritmadingiz
                             </p>
                         </label>
-                       <input name="tel" id="tel" type="tel"  placeholder="+998" className=" form-input" />
+                       <label className='form-label'>
+                            <input name="tel" id="tel" type="tel"  placeholder="+998" className=" form-input" />
                             <p className="tel-errors" id='errorTel'>
                                 Siz telefon raqamingizni kiritmadingiz
                             </p>
+                       </label>
                         <textarea placeholder="Xabar" id="textarea"
                             name="textarea" className="form-text" />
                         <span className="info-errors" id='errorInfo'>

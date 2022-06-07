@@ -39,7 +39,7 @@
 
 
 .form-text{
-    width: 300px;
+    width: 310px;
     height: 75px;
     margin: 0 auto;
     margin-top: 10px;
@@ -113,6 +113,8 @@
     display: none;
     font-size: 13px;
     padding-top: 3px;  
+    margin-top: 0px;
+    margin-left: -160px;
 }
 .error-text1{
     color: red;
@@ -123,12 +125,16 @@
     display: none;
     font-size: 13px;
     padding-top: 3px; 
+    margin-top: 0px;
+    margin-left: -100px;
 }
 .info-errors{
     color: red;
     display: none;
     font-size: 13px;
     padding-top: 3px; 
+    margin-top: 0px;
+    margin-left: -178px;
 }
 .error-info{
     color: red;
@@ -137,7 +143,6 @@
 }
 .error-info1{
     color: red;
-    
     display: block;
 }
 .error-tel1{
@@ -152,9 +157,19 @@
         width: 350px;
     }
 
-    .contact-input{
-        width: 310px;
-        height: 51.22px;
+    .form-input{
+        width: 280px;
+        height: 51px;
+    }
+
+    .form-text{
+        width: 288px;
+    }
+
+    .form-btn{
+        width: 300px;
     }
 }
+
+
 

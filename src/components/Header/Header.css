@@ -83,6 +83,7 @@
 .header-page{
     display: flex;
     align-items: center;
+    transition: 0.7s;
 }
 
 .header-circle{
@@ -504,6 +505,10 @@
 }
 
 @media (max-width:350px) {
+
+    .container{
+        width: 300px;
+    }
     
     .header-circle{
         width: 210px;
