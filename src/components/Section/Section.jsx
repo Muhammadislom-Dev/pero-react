@@ -1,16 +1,16 @@
 import './Section.css'
-
+import { Link } from 'react-router-dom'
 import pero from '../../Assets/img/milks.png'
 import mwhite from '../../Assets/img/mwhite.png'
 import pero2 from '../../Assets/img/pero2.png'
 import pero1 from '../../Assets/img/pero1.png'
-import pero3 from '../../Assets/img/pero3.png'
+import pero3 from '../../Assets/img/peros.svg'
 
 import icon from '../../Assets/img/strelka.png'
 
 const Section = () =>{
     return(
-        <div className="section">
+        <div id='product' className="section">
             <div className="container">
                 <div className="section-page">
                     <div className="section-list">
@@ -19,7 +19,7 @@ const Section = () =>{
                         </div>
                         <div className='section-title'>
                             <h3 className="section-name">Бумажные продукции</h3>
-                            <a href="#" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </a>
+                            <Link to="/category" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link>
                         </div>
                         
                     </div>
@@ -30,7 +30,7 @@ const Section = () =>{
                         </div>
                         <div className='section-title'>
                             <h3 className="section-name">Бумажные продукции</h3>
-                            <a href="#" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </a>
+                            <Link to="/category"   className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@ const Section = () =>{
                         </div>
                         <div className='section-title'>
                             <h3 className="section-name">Бумажные продукции</h3>
-                            <a href="#" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </a>
+                            <Link to="/category" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@ const Section = () =>{
                         </div>
                         <div className='section-title'>
                             <h3 className="section-name">Бумажные продукции</h3>
-                            <a href="#" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </a>
+                            <Link to="/category" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link>
                         </div>
                     </div>
                 </div>
