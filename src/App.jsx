@@ -5,10 +5,12 @@ import Rating from "./components/Rating/Rating";
 import Brand from './Page/Brand/Brand'
 import Footer from "./components/Footer/Footer";
 import './App.css'
-
+import { Switch, Route } from "react-router-dom";
 import Aos from "aos"
 import "aos/dist/aos.css"
 import  {useEffect}  from 'react'
+import Product from "./Page/Product/Product";
+import AboutPage from "./Page/AboutPage/AboutPage";
 
 
 function App() {
@@ -18,12 +20,23 @@ function App() {
 
   return (
     <div className="App">
-          <HeaderInput />
-          <Home />
-          <Section />
-          <Rating />
-          <Brand />
-          <Footer /> 
+          <Switch>
+
+            <Route exact path="/" >
+              <HeaderInput />
+              <Home />
+              <Section />
+              <Rating />
+              <Brand />
+              <Footer />
+            </Route>
+            <Route path="/category">
+                <Product />
+            </Route>
+            <Route path="/about">
+               <AboutPage />
+            </Route>
+          </Switch>
     </div>
   );
 }
