@@ -189,7 +189,7 @@ const About = () => {
                     <h2 className="about-names">Other production</h2>
                       <Fade bottom>
                         <div className="about__page">
-                        <div className="about-list">
+                        <div className="category-list">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
@@ -198,7 +198,7 @@ const About = () => {
                                 <img src={pero2} alt="" className="category-pics" />
                             </div>
                         </div>
-                        <div className="about-list">
+                        <div className="category-list">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
@@ -207,7 +207,7 @@ const About = () => {
                                 <img src={pero2} alt="" className="category-pics" />
                             </div>
                         </div>
-                        <div className="about-list">
+                        <div className="category-list">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
@@ -216,7 +216,7 @@ const About = () => {
                                 <img src={pero2} alt="" className="category-pics" />
                             </div>
                         </div>
-                        <div className="about-list">
+                        <div className="category-list">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
