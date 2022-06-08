@@ -11,7 +11,8 @@ import car from '../../Assets/img/car.png'
 import check from '../../Assets/img/check.png'
 import center from '../../Assets/img/callcenter.png'
 import sticky from '../../Assets/img/Sticky.png'
-
+import { Bounce } from 'react-reveal'
+import { Rotate } from 'react-reveal'
 
 const Category = () => {
     return(
@@ -21,7 +22,7 @@ const Category = () => {
                <div className="container">
                    <div className="category-page">
                         <div className="category-list">
-                            <Link to="/about">
+                            <Link className='category-link' to="/about">
                                 <div className="category-span">
                                     <h5 className="category-pero">PERO</h5>
                                     <h4 className="category-name">Влажные салфетки</h4>
@@ -32,7 +33,7 @@ const Category = () => {
                             </Link>
                         </div>
                         <div className="category-list">
-                          <Link to="/about">
+                          <Link className='category-link' to="/about">
                             <div className="category-span">
                                     <h5 className="category-pero">PERO</h5>
                                     <h4 className="category-name">Влажные салфетки</h4>
@@ -43,7 +44,7 @@ const Category = () => {
                           </Link>
                         </div>
                         <div className="category-list">
-                            <Link to="/about">
+                            <Link className='category-link' to="/about">
                                 <div className="category-span">
                                     <h5 className="category-pero">PERO</h5>
                                     <h4 className="category-name">Влажные салфетки</h4>
@@ -54,7 +55,7 @@ const Category = () => {
                              </Link>
                         </div>
                         <div className="category-list">
-                            <Link to="/about">
+                            <Link className='category-link' to="/about">
                                 <div className="category-span">
                                     <h5 className="category-pero">PERO</h5>
                                     <h4 className="category-name">Влажные салфетки</h4>
@@ -65,7 +66,7 @@ const Category = () => {
                              </Link>
                         </div>
                         <div className="category-list">
-                            <Link to="/about">
+                            <Link className='category-link' to="/about">
                                 <div className="category-span">
                                     <h5 className="category-pero">PERO</h5>
                                     <h4 className="category-name">Влажные салфетки</h4>
@@ -76,7 +77,7 @@ const Category = () => {
                              </Link>
                         </div>
                         <div className="category-list">
-                             <Link to="/about">
+                             <Link className='category-link' to="/about">
                                 <div className="category-span">
                                     <h5 className="category-pero">PERO</h5>
                                     <h4 className="category-name">Влажные салфетки</h4>
@@ -87,7 +88,7 @@ const Category = () => {
                              </Link>
                         </div>
                         <div className="category-list">
-                            <Link to="/about">
+                            <Link className='category-link' to="/about">
                                 <div className="category-span">
                                     <h5 className="category-pero">PERO</h5>
                                     <h4 className="category-name">Влажные салфетки</h4>
@@ -98,7 +99,7 @@ const Category = () => {
                              </Link>
                         </div>
                         <div className="category-list">
-                         <Link to="/about">
+                         <Link className='category-link' to="/about">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
@@ -111,8 +112,12 @@ const Category = () => {
                    </div>
                </div>
 
-                <img src={mgreen} alt="" className="header-greens" />
-                <img src={mgren} alt="" className="header-grens" />
+                <Rotate bottom right>
+                    <img src={mgreen} alt="" className="header-greens" />
+                </Rotate>
+                <Rotate bottom left>
+                    <img src={mgren} alt="" className="header-grens" />
+                </Rotate>
            </div>
 
            <div className="company">
@@ -134,7 +139,9 @@ const Category = () => {
                </div>
            </div>
 
-           <img src={sticky} alt="" className="headerinput-img" />
+           <Bounce top>
+                <img src={sticky} alt="" className="headerinput-img" />
+            </Bounce>
        </div>
     )
 }
