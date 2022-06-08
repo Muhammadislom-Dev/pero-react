@@ -2,7 +2,7 @@
     background-image: url("../../Assets/img/top.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    padding: 0 0 70px 0;
+    padding: 0 0 90px 0;
 }
 
 
@@ -94,4 +94,163 @@
     top: 0%;
     left: 2%;
     width: 310px;
+}
+
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
+
+@media (max-width:1320px) {
+    
+    .container{
+        width: 1220px;
+    }
+    .category-list{
+        margin: 0 50px;
+    }
+
+    .header-grens{
+        left: -5%;
+    }
+    .header-greens{
+        top: 65%;
+    }
+}
+
+@media (max-width:1220px) {
+    
+    .container{
+        width: 1140px;
+    }
+
+    .category-list{
+        margin: 0 40px;
+    }
+
+    .header-greens{
+        width: 190px;
+    }
+    .header-grens{
+        width: 250px;
+    }
+}
+
+@media (max-width:1160px) {
+    
+    .container{
+        width: 1000px;
+    }
+
+    .category-list{
+        margin: 5px 30px;
+    }
+    .header-greens{
+        width: 165px;
+        height: 190px;
+        left: 84%;
+    }
+}
+
+@media (max-width:1020px) {
+    
+    .container{
+        width: 900px;
+    }
+
+    .category-list{
+        margin: 10px 20px;
+    }
+
+    .header-greens{
+        left: 82%;
+        top: 71%;
+    }
+    .header-grens{
+        display: none;
+    }
+}
+
+@media (max-width:920px) {
+    
+    .container{
+        width: 800px;
+    }
+
+    .header-greens{
+        display: none;
+    }
+
+    .category-list{
+        margin: 10px 20px;
+    }
+}
+@media (max-width:820px) {
+    
+    .container{
+        width: 700px;
+    }
+
+    .category-list{
+        margin: 10px 30px;
+    }
+}
+
+@media (max-width:720px) {
+    
+    .container{
+        width: 600px;
+    }
+
+    .category-list{
+        margin: 10px 20px;
+    }
+}
+
+@media (max-width:620px) {
+    
+    .container{
+        width: 500px;
+    }
+    .category-list{
+        margin: 10px 5px;
+    }
+}
+
+@media (max-width:520px) {
+    
+    .container{
+        width: 400px;
+    }
+    .category-list{
+        margin: 10px 15px;
+    }
+}
+
+@media (max-width:420px) {
+    
+    .container{
+        width: 330px;
+    }
+
+    .category-list{
+        margin: 10px 5px;
+    }
+
+    .category-span{
+        width: 140px;
+    }
+    .category-yellow{
+        width: 140px;
+    }
+
+    .category-img{
+        width: 160px;
+    }
+
+    .category-picture{
+        width: 180px;
+        height: 110px;
+        margin-top: -9px;
+    }
 }

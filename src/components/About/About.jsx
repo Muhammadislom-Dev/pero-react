@@ -1,5 +1,6 @@
 import './About.css'
 import React from 'react';
+import Fade from 'react-reveal/Fade';
 import { useState } from 'react';
 import Modal from 'react-modal';
 import milk from '../../Assets/img/milkk.png'
@@ -128,45 +129,49 @@ const About = () => {
             <div className="about">
             <div className="container">
                 <div className="about-page">
-                    <div className="about-left">
-                        <img src={milk} alt="" className="about-img" />
-                    </div>
-                    <div className="about-right">
-                        <div>
-                            <h2 className="about-name">Бумажные продукции</h2>
-                            <ul className="about-list">
-                                <li className="about-item">
-                                    <p className="about-text">Артикул: 200</p>
-                                </li>
-                                <li className="about-item">
-                                    <p className="about-text">Категория: Бумажные продукции</p>
-                                </li>
-                                <li className="about-item">
-                                    <p className="about-text">Размер: 20×20</p>
-                                </li>
-                                <li className="about-item">
-                                    <p className="about-text">Состав: 100% (целлюлоза)</p>
-                                </li>
-                                <li className="about-item">
-                                    <p className="about-text">Слой: 2 </p>
-                                </li>
-                                <li className="about-item">
-                                    <button onClick={openModal} className="about-btn">Buy Now</button>
-                                </li>
-                            </ul>
+                    <Fade left>
+                        <div className="about-left">
+                            <img src={milk} alt="" className="about-img" />
                         </div>
-                            <ul className="header-title">
-                                <li className="header-items">
-                                    <button onClick={() => this.handleClick('uz')} className="header-btn">UZ</button>
-                                </li>
-                                <li className="header-items">
-                                    <button onClick={() => this.handleClick('ru')} className="header-btn">RU</button>
-                                </li>
-                                <li className="header-items">
-                                    <button onClick={() => this.handleClick('en')} className="header-btn">EN</button>
-                                </li>
-                            </ul>
-                    </div>
+                    </Fade>
+                      <Fade right>
+                            <div className="about-right">
+                                <div>
+                                    <h2 className="about-name">Бумажные продукции</h2>
+                                    <ul className="about-list">
+                                        <li className="about-item">
+                                            <p className="about-text">Артикул: 200</p>
+                                        </li>
+                                        <li className="about-item">
+                                            <p className="about-text">Категория: Бумажные продукции</p>
+                                        </li>
+                                        <li className="about-item">
+                                            <p className="about-text">Размер: 20×20</p>
+                                        </li>
+                                        <li className="about-item">
+                                            <p className="about-text">Состав: 100% (целлюлоза)</p>
+                                        </li>
+                                        <li className="about-item">
+                                            <p className="about-text">Слой: 2 </p>
+                                        </li>
+                                        <li className="about-item">
+                                            <button onClick={openModal} className="about-btn">Buy Now</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <ul className="header-title">
+                                    <li className="header-items">
+                                        <button onClick={() => this.handleClick('uz')} className="header-btn">UZ</button>
+                                    </li>
+                                    <li className="header-items">
+                                        <button onClick={() => this.handleClick('ru')} className="header-btn">RU</button>
+                                    </li>
+                                    <li className="header-items">
+                                        <button onClick={() => this.handleClick('en')} className="header-btn">EN</button>
+                                    </li>
+                                </ul>
+                            </div>
+                      </Fade>
                 </div>
             </div>
 
@@ -177,8 +182,9 @@ const About = () => {
             <div className="about-box">
                 <div className="container">
                     <h2 className="about-names">Other production</h2>
-                    <div className="about__page">
-                        <div className="category-list">
+                      <Fade bottom>
+                        <div className="about__page">
+                        <div className="about-list">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
@@ -187,7 +193,7 @@ const About = () => {
                                 <img src={pero2} alt="" className="category-pics" />
                             </div>
                         </div>
-                        <div className="category-list">
+                        <div className="about-list">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
@@ -196,7 +202,7 @@ const About = () => {
                                 <img src={pero2} alt="" className="category-pics" />
                             </div>
                         </div>
-                        <div className="category-list">
+                        <div className="about-list">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
@@ -205,7 +211,7 @@ const About = () => {
                                 <img src={pero2} alt="" className="category-pics" />
                             </div>
                         </div>
-                        <div className="category-list">
+                        <div className="about-list">
                             <div className="category-span">
                                 <h5 className="category-pero">PERO</h5>
                                 <h4 className="category-name">Влажные салфетки</h4>
@@ -214,7 +220,8 @@ const About = () => {
                                 <img src={pero2} alt="" className="category-pics" />
                             </div>
                         </div>
-                    </div>
+                        </div>
+                      </Fade>
                     <div className="about-buttons">
                         <button className="about-button">Back</button>
                     </div>
