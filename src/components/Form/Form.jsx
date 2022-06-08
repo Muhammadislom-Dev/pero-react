@@ -80,7 +80,7 @@ const Form = () =>{
             if(e.target[0].value.length < 1 ){
                 
                 document.querySelector("#name").classList.add("input-error")
-               document.querySelector("#errorText").classList.add("error-text1")
+                document.querySelector("#errorText").classList.add("error-text1")
             }
             if(e.target[1].value.length < 1){
                 document.querySelector("#tel").classList.add("tel-error")
@@ -156,7 +156,7 @@ const Form = () =>{
                    <p className="form-texts">Biz o’zimiz siz bilan tez muddatda bog’lanamiz, lekin shoshilnch desangiz shu raqamga qo’ng’iroq qilsangiz ham bo’ladi +9989900000000</p>
 
                    <div className="form-title">
-                       <button className="form-done">Done</button>
+                       <button onClick={closeModal} className="form-done">Done</button>
                    </div>
             </Modal>
         </div>
