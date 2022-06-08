@@ -1,54 +1,24 @@
-import i18n from 'i18next';
-import Backend from 'i18next-xhr-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import { initReactI18next } from 'react-i18next';
+import i18next from "i18next";
+import HttpBackend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
+import { initReactI18next } from "react-i18next";
 
-const fallbackLng = ['en'];
-const availableLanguages = ['en', 'ko', 'chi'];
+const apiKey = "RK5WU6P98q8D9Lkvbelhvw";
+const loadPath = `https://api.i18nexus.com/project_resources/translations/{{lng}}/{{ns}}.json?api_key=${apiKey}`;
 
-
-const options = {
-  // order and from where user language should be detected
-  order: [ 'navigator', 'htmlTag', 'path', 'subdomain'],
-
-  // keys or params to lookup language from
-  lookupQuerystring: 'lng',
-  lookupCookie: 'i18next',
-  lookupLocalStorage: 'i18nextLng',
-  lookupFromPathIndex: 0,
-  lookupFromSubdomainIndex: 0,
-
-  // cache user language on
-  caches: ['localStorage', 'cookie'],
-  excludeCacheFor: ['cimode'], // languages to not persist (cookie, localStorage)
-
-  // optional expire and domain for set cookie
-  cookieMinutes: 10,
-  cookieDomain: 'myDomain',
-
-  // optional htmlTag with lang attribute, the default is:
-  htmlTag: document.documentElement,
-
-  // only detect languages that are in the whitelist
-  checkWhitelist: true
-}
-
-i18n
-  .use(Backend) // load translation using xhr -> see /public/locales. We will add locales in the next step
-
-  .use(LanguageDetector) // detect user language
-
-  .use(initReactI18next) // pass the i18n instance to react-i18next.
-
+i18next
+  .use(HttpBackend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
-    fallbackLng, // if user computer language is not on the list of available languages, than we will be using the fallback language specified earlier
-    debug: true,
-    whitelist: availableLanguages,
-    detection: options,
+    fallbackLng: "uz",
 
-    interpolation: {
-      escapeValue: false
-    },
-  });
+    ns: ["default"],
+    defaultNS: "default",
 
-export default i18n;
+    supportedLngs: ["uz","ru","en"],
+    
+    backend: {
+      loadPath: loadPath
+    }
+  })
