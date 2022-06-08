@@ -7,6 +7,7 @@
     position: absolute;
     top: 58%;
     left: 82%;
+    width: 280px;
 }
 
 .container{
@@ -218,7 +219,7 @@
     }
 
     .header-green{
-        left: 90%;
+        left: 92%;
         top: 43%;
     }
     .header-gren{

@@ -1,6 +1,9 @@
 import './Form.css'
 import * as React from 'react';
 import { useState } from "react"
+import { useTranslation } from 'react-i18next';
+
+
 
 const Form = () =>{
 
@@ -79,6 +82,9 @@ const Form = () =>{
       
     }
 
+    const {t} = useTranslation()
+
+
 
 
     return(
@@ -89,7 +95,7 @@ const Form = () =>{
 
                     <form id="myForm" onSubmit={formBtn}  className="form-list">
                         <label className='form-label'>
-                            <input name="name" id="name" type="text"  placeholder="Ismingizni kiriting" className=" form-input" />
+                            <input name="name" id="name" type="text"  placeholder={t(18)} className=" form-input" />
                             <p className="error-text" id='errorText'>
                                 Siz ismingizni kiritmadingiz
                             </p>
@@ -100,12 +106,12 @@ const Form = () =>{
                                 Siz telefon raqamingizni kiritmadingiz
                             </p>
                        </label>
-                        <textarea placeholder="Xabar" id="textarea"
+                        <textarea placeholder={t(19)} id="textarea"
                             name="textarea" className="form-text" />
                         <span className="info-errors" id='errorInfo'>
                             Siz xabar kiritmadingiz
                         </span>
-                        <button id="btnSubmit" type='submit' className="form-btn">Отправитъ</button>
+                        <button id="btnSubmit" type='submit' className="form-btn">{t(20)}</button>
                     </form>
                 </div>
             </div>

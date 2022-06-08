@@ -27,7 +27,7 @@ const Category = () => {
                                     <h4 className="category-name">Влажные салфетки</h4>
                                 </div>
                                 <div className="category-yellow">
-                                    <img src={pero} alt="" className="box-img" />
+                                    <img src={pero} alt="" className="category-img" />
                                 </div>
                             </Link>
                         </div>

@@ -5,10 +5,14 @@ import factory from '../../Assets/img/factory.png'
 import car from '../../Assets/img/car.png'
 import check from '../../Assets/img/check.png'
 import center from '../../Assets/img/callcenter.png'
+import { useTranslation } from 'react-i18next';
 
 import Arrow from '../../SVG/Arrow'
 
 const Company = () =>{
+
+    const {t} = useTranslation()
+
     return(
         <div id='company' className="company">
             <div className="container">
@@ -43,7 +47,7 @@ const Company = () =>{
                 <div className="company-box">
                     <div className="company-list">
                         <img src={car} alt="" className="company-pic" />
-                        <h5 className="company-names">Доставка по Ташкенту</h5>
+                        <h5 className="company-names">{t(10)}</h5>
                     </div>
                     <div className="company-list">
                         <img src={check} alt="" className="company-pic" />
@@ -51,7 +55,7 @@ const Company = () =>{
                     </div>
                     <div className="company-list">
                         <img src={center} alt="" className="company-pic" />
-                        <h5 className="company-names">Служба поддержки 24/7</h5>
+                        <h5 className="company-names">{t(11)}</h5>
                     </div>
                 </div>
             </div>
