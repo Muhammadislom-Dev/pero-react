@@ -10,6 +10,8 @@ import pero2 from '../../Assets/img/pero2.png'
 import mgren from '../../Assets/img/mgren.png'
 import sticky from '../../Assets/img/Sticky.png'
 import times from '../../Assets/img/x.png'
+import Rotate from 'react-reveal/Rotate';
+import Bounce from 'react-reveal/Bounce';
 
 const customStyles = {
     content: {
@@ -33,7 +35,6 @@ const About = () => {
     }
   
     function afterOpenModal() {
-      // references are now sync'd and can be accessed.
       subtitle.style.color = '#f00';
     }
   
@@ -174,9 +175,13 @@ const About = () => {
                       </Fade>
                 </div>
             </div>
-
+            <Rotate bottom right>
                 <img src={mgreen} alt="" className="header-greens" />
+            </Rotate>
+                
+            <Rotate bottom left>
                 <img src={mgren} alt="" className="about-gren" />
+            </Rotate>
             </div>
 
             <div className="about-box">
@@ -228,7 +233,9 @@ const About = () => {
                 </div>
             </div>
 
-            <img src={sticky} alt="" className="headerinput-img" />
+            <Bounce top>
+                <img src={sticky} alt="" className="headerinput-img" />
+            </Bounce>
 
 
             <Modal
