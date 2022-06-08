@@ -1,9 +1,9 @@
 import Header from '../../components/Header/Header'
 import Navbar from '../../components/Navbar/Navbar'
 import './HeaderInput.css'
-
+import React from 'react';
+import Bounce from 'react-reveal/Bounce';
 import sticky from '../../Assets/img/Sticky.png'
-import Box from '../../components/Box/Box'
 
 const HeaderInput = () =>{
     return(
@@ -13,7 +13,9 @@ const HeaderInput = () =>{
             <Header />
             </div>
             {/* <Box /> */}
-            <img src={sticky} alt="" className="headerinput-img" />
+            <Bounce top>
+                <img src={sticky} alt="" className="headerinput-img" />
+            </Bounce>
         </div>
     )
 }

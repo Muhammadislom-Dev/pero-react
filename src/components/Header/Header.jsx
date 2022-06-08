@@ -2,17 +2,15 @@ import './Header.css'
 import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
-
 import icon from '../../Assets/img/Icon.png'
 import milk from '../../Assets/img/milk.png'
-
+import { Link } from 'react-router-dom';
 import mgreen from '../../Assets/img/mgreen.png'
 import mgren from '../../Assets/img/mgren.png'
-
 import Vector from '../../SVG/Vector'
 import Lock from '../../SVG/Lock'
 import Check from '../../SVG/Check'
-
+import Rotate from 'react-reveal/Rotate';
 
 
 
@@ -32,7 +30,7 @@ class Header extends Component{
                     <div className="header-page">
                         <div className="header-left">
                             <h2 className="header-name">{t('Thanks.1')}   <br />  <span className="header-names">{t('Why.1')}</span></h2>
-                            <a href="#" className="header-link">Посмотреть всё <img src={icon} alt="" className="header-icon" /> </a>
+                            <Link to="/category" className="header-link">Посмотреть всё <img src={icon} alt="" className="header-icon" /> </Link>
                             
                             <ul className="header-list">
                                 <li className="header-item">
@@ -45,13 +43,13 @@ class Header extends Component{
                                     <button className="header-span">
                                         <Check />
                                     </button>
-                                    <p className="header-text">Гарантия высокого качества</p>
+                                    <p className="header-text">{t(7)}</p>
                                 </li>
                                 <li className="header-item">
                                     <button className="header-span">
                                         <Lock className="header-img" />
                                     </button>
-                                    <p className="header-text">Безопасность продукта</p>
+                                    <p className="header-text">{t(8)}</p>
                                 </li>
                             </ul>
                         </div>
@@ -75,8 +73,14 @@ class Header extends Component{
                     </div>
             </div>
 
-            <img src={mgreen} alt="" className="header-green" />
-            <img src={mgren} alt="" className="header-gren" />
+            
+            <Rotate bottom right>
+                <img src={mgreen} alt="" className="header-green" />
+            </Rotate>
+            
+            <Rotate bottom left>
+                <img src={mgren} alt="" className="header-gren" />
+            </Rotate>
         </div>
     )
 }

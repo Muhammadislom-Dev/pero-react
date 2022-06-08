@@ -9,6 +9,9 @@ import pero3 from '../../Assets/img/peros.svg'
 import icon from '../../Assets/img/strelka.png'
 
 const Section = () =>{
+
+    
+
     return(
         <div id='product' className="section">
             <div className="container">
