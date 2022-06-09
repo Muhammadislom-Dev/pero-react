@@ -1,7 +1,6 @@
 import './Rating.css'
 
 import Fade from 'react-reveal/Fade';
-import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 const Rating = () =>{
