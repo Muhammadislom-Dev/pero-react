@@ -2,20 +2,8 @@ import './Form.css'
 import * as React from 'react';
 import { useState } from "react"
 import { useTranslation } from 'react-i18next';
-import Modal from 'react-modal';
+import Modal from '../Modal/Modal';
 
-
-
-const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-  };
 
 const Form = () =>{
 
@@ -96,26 +84,6 @@ const Form = () =>{
 
     const {t} = useTranslation()
 
-
-
-    //Modal
-
-    let subtitle;
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    subtitle.style.color = '#f00';
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-
     return(
         <div id='form' className="form">
             <div className="container">
@@ -140,23 +108,17 @@ const Form = () =>{
                         <span className="info-errors" id='errorInfo'>
                             Siz xabar kiritmadingiz
                         </span>
-                        <button onClick={openModal} id="btnSubmit" type='submit' className="form-btn">{t(20)}</button>
+                        <button  id="btnSubmit" type='submit' className="form-btn">{t(20)}</button>
                     </form>
                 </div>
             </div>
 
-            <Modal 
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
-                style={customStyles}
+            <Modal show={greatModal} className="modal-content"
                 contentLabel="Example Modal">
-                <button className='form-button' onClick={closeModal}>&times;</button>
+                <button className='form-button' onClick={()=>setGreatModal()}>&times;</button>
                    <h3 className='form-names'>Murojaatingiz uchun tashakkur 😊</h3>
-                   <p className="form-texts">Biz o’zimiz siz bilan tez muddatda bog’lanamiz, lekin shoshilnch desangiz shu raqamga qo’ng’iroq qilsangiz ham bo’ladi +9989900000000</p>
-
                    <div className="form-title">
-                       <button onClick={closeModal} className="form-done">Done</button>
+                       <button onClick={()=>setGreatModal()} className="form-done">Done</button>
                    </div>
             </Modal>
         </div>
