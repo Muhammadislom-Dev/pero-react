@@ -2,6 +2,7 @@ import './About.css'
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import milk from '../../Assets/img/milkk.png'
 import Navbar from '../Navbar/Navbar'
@@ -12,6 +13,8 @@ import sticky from '../../Assets/img/Sticky.png'
 import times from '../../Assets/img/x.png'
 import Rotate from 'react-reveal/Rotate';
 import Bounce from 'react-reveal/Bounce';
+import Modals from '../Modal/Modal';
+
 
 const customStyles = {
     content: {
@@ -268,6 +271,18 @@ const About = () => {
                     <button id="btnSubmit" type='submit' className="form-btn">Отправитъ</button>
                 </form>
             </Modal>
+
+
+
+            
+            <Modals show={greatModal} className="modal-content"
+                contentLabel="Example Modal">
+                <Link to="/" className='form-buttons' onClick={()=>setGreatModal()}>&times;</Link>
+                   <h3 className='form-names'>Murojaatingiz uchun tashakkur 😊</h3>
+                   <div className="form-titles">
+                        <Link to="/" onClick={()=>setGreatModal()} className="form-dones">Done</Link>
+                   </div>
+            </Modals>
         </div>
     )
 }

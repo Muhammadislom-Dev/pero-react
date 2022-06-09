@@ -202,16 +202,51 @@
     margin-top: 35px;
 }
 
-.form-button{
+.form-button, .form-buttons{
     outline: none;
     border: none;
     background-color: transparent;
     font-size: 45px;
+    text-decoration: none;
     cursor: pointer;
     font-weight: bold;
     position: absolute;
     top: 2%;
     left: 90%;
+}
+
+.form-buttons{
+    color: #000000;
+}
+
+.modal{
+    position: relative;
+}
+.close-btn{
+    position: absolute;
+    top: 0%;
+    left: 100%;
+    transform: translate(-50%,-60%);
+    background-color: red;
+    border: none;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 33px;
+    color: white;
+    height: 33px;
+    cursor: pointer;
+}
+
+@media (max-width:520px) {
+    
+    .container{
+        width: 400px;
+    }
+    .form-texts{
+        font-size: 14px;
+        width: 370px;
+    }
 }
 
 
@@ -232,6 +267,16 @@
 
     .form-btn{
         width: 300px;
+    }
+
+    .form-texts{
+        font-size: 10px;
+        line-height: 16px;
+        width: 300px;
+    }
+    .form-names{
+        font-size: 25px;
+        margin-left: 15px;
     }
 }
 
