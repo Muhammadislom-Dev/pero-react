@@ -136,6 +136,25 @@
     text-align: center;
 }
 
+.form-dones{
+    padding: 14px 60px;
+    color: #fff;
+    text-decoration: none;
+    background: #3A896A;
+    border-radius: 14px;
+    border: 2px solid #3A896A;
+    transition: 0.5s;
+}
+.form-dones:hover{
+    background-color: transparent;
+    color: #3A896A;
+}
+
+.form-titles{
+    text-align: center;
+    margin-top: 60px;
+}
+
 @media (max-width:1320px) {
     
     .container{
