@@ -12,11 +12,12 @@
 }
 .box-list{
     margin: 0 30px;
-    animation-name: BoxYellows;
-    animation-duration: 22s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.box-list:hover{
+    transform: scale(1.2);
 }
 
 .box-span{
@@ -63,10 +64,10 @@
 .box-lists{
     cursor: pointer;
     margin: 0 30px;
-    animation-name: BoxLists;
-    animation-duration: 22s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    transition: 0.3s;
+}
+.box-lists:hover{
+    transform: scale(1.2);
 }
 
 .box-green{
@@ -77,11 +78,12 @@
 
 .box-circle{
     margin: 0 30px;
-    animation-name: BoxCircle;
-    animation-duration: 22s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.box-circle:hover{
+    transform: scale(1.2);
 }
 
 .box-orange{
@@ -104,13 +106,13 @@
 }
 
 .box-right{
-    transform: rotate(-17.72deg);
     margin: 0 30px;
-    animation-name: BoxRight;
-    animation-duration: 22s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.box-right:hover{
+    transform: scale(1.2);
 }
 
 .box-yellows{
@@ -123,62 +125,7 @@
     margin-top: -10px;
 }
 
-@keyframes BoxYellows {
-    
-    0%{
-        transform: rotate(0deg);
-    }
-    35%{
-    transform: rotate(30deg);
-    }
 
-    70%{
-        transform: rotate(-25deg);
-    }
-}
-
-@keyframes BoxCircle {
-    
-    0%{
-        transform: rotate(0deg);
-    }
-    35%{
-    transform: rotate(30deg);
-    }
-
-    70%{
-        transform: rotate(-25deg);
-    }
-}
- 
-    
-@keyframes BoxRight {
-    
-    0%{
-        transform: rotate(0deg);
-    }
-    35%{
-    transform: rotate(-30deg);
-    }
-
-    70%{
-        transform: rotate(25deg);
-    }
-}
-
-@keyframes BoxLists {
-    
-    0%{
-        transform: rotate(0deg);
-    }
-    35%{
-    transform: rotate(-30deg);
-    }
-
-    70%{
-        transform: rotate(25deg);
-    }
-}
  
 
 @media (max-width:1520px) {
