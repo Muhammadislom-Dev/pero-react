@@ -45,10 +45,11 @@
     height: 170px;
     border-radius: 50%;
     background-color: #fff;
-    animation-name:SectionPero;
-    animation-duration: 22s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    transition: 0.3s;
+}
+
+.section-circle:hover{
+    transform: scale(1.2);
 }
 
 .section-page{
@@ -99,21 +100,6 @@
     margin: 0 auto;
 }
 
-
-
-@keyframes SectionPero {
-    
-    0%{
-        transform: rotate(0deg);
-    }
-    35%{
-        transform: rotate(20deg);
-    }
-
-    70%{
-        transform: rotate(-25deg);
-    }
-}
 
 
 @media (max-width:1920px) {
