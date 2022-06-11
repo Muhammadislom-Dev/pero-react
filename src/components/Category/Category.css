@@ -21,21 +21,26 @@
 .category-list{
     cursor: pointer;
     margin: 15px 40px;
+    transition: 0.3s;
 }
 
-.category-list:nth-child(1), .category-list:nth-child(3), .category-list:nth-child(5), .category-list:nth-child(7){
+.category-list:hover{
+    transform: scale(1.2);
+}
+
+/* .category-list:nth-child(1), .category-list:nth-child(3), .category-list:nth-child(5), .category-list:nth-child(7){
     animation-name: CategoryAnimation1;
     animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-}
+} */
 
-.category-list:nth-child(2), .category-list:nth-child(4), .category-list:nth-child(6), .category-list:nth-child(8){
+/* .category-list:nth-child(2), .category-list:nth-child(4), .category-list:nth-child(6), .category-list:nth-child(8){
     animation-name: CategoryAnimation2;
     animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-}
+} */
 
 
 

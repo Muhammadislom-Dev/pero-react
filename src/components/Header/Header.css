@@ -5,9 +5,9 @@
 
 .header-green{
     position: absolute;
-    top: 58%;
-    left: 82%;
-    width: 280px;
+    top: 62%;
+    left: 86%;
+    width: 260px;
 }
 
 .container{
@@ -92,17 +92,20 @@
     height: 330px;
     background-color: #3A896A;
     border-radius: 50%;
+    transition: 0.9s;
+}
+
+.header-circle:hover{
+    transform: scale(1.2);
 }
 
 .header-pictures{
     margin-left: -42px;
     margin-top: 10px;
     width: 370px;
-    animation-name: HeaderMilk;
-    animation-duration: 22s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    /* transition: 0.8s; */
 }
+
 
 .header-left{
     padding: 0 100px;
@@ -152,28 +155,9 @@
     padding: 5px 0px;
 }
 
-
-
-
 .header-span:hover{
     border: 1px solid #3A896A;
     transform: scale(1.2);
-}
-
-
-
-@keyframes HeaderMilk {
-    
-    0%{
-        transform: rotate(0deg);
-    }
-    35%{
-        transform: rotate(25deg);
-    }
-
-    70%{
-        transform: rotate(-25deg);
-    }
 }
 
 .container{
@@ -265,9 +249,9 @@
     }
 
     .header-green{
-        left: 83%;
-        top: 50%;
-        width: 220px;
+        left: 84%;
+        top: 58%;
+        width: 200px;
     }
 }
 
@@ -296,6 +280,8 @@
         width: 200px;
         top: 56%;
     }
+
+
 }
 
 @media (max-width:1160px) {
@@ -305,7 +291,7 @@
     }
 
     .header-green{
-        left: 80%;
+        left: 82%;
         top: 63%;
         width: 180px;
     }
@@ -332,7 +318,7 @@
     .header-green{
         left: 85%;
         top: 63%;
-        width: 140px;
+        width: 130px;
     }
 
     .header-gren{
