@@ -1,4 +1,5 @@
 import './About.css'
+import i18next from 'i18next';
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 import { useState } from 'react';
@@ -14,6 +15,7 @@ import times from '../../Assets/img/x.png'
 import Rotate from 'react-reveal/Rotate';
 import Bounce from 'react-reveal/Bounce';
 import Modals from '../Modal/Modal';
+import { useTranslation } from 'react-i18next';
 
 
 const customStyles = {
@@ -28,7 +30,7 @@ const customStyles = {
     },
   };
 
-const About = () => {
+const About = ({name, img, description, change1, change2, change3}) => {
 
     let subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -124,9 +126,6 @@ const About = () => {
     }
 
 
- 
-
-
     return(
         <div className="aboutpage">
             <Navbar />
@@ -135,43 +134,27 @@ const About = () => {
                 <div className="about-page">
                     <Fade left>
                         <div className="about-left">
-                            <img src={milk} alt="" className="about-img" />
+                            <img src={img} alt="" className="about-img" />
                         </div>
                     </Fade>
                       <Fade right>
                             <div className="about-right">
                                 <div>
-                                    <h2 className="about-name">Бумажные продукции</h2>
-                                    <ul className="about-list">
-                                        <li className="about-item">
-                                            <p className="about-text">Артикул: 200</p>
-                                        </li>
-                                        <li className="about-item">
-                                            <p className="about-text">Категория: Бумажные продукции</p>
-                                        </li>
-                                        <li className="about-item">
-                                            <p className="about-text">Размер: 20×20</p>
-                                        </li>
-                                        <li className="about-item">
-                                            <p className="about-text">Состав: 100% (целлюлоза)</p>
-                                        </li>
-                                        <li className="about-item">
-                                            <p className="about-text">Слой: 2 </p>
-                                        </li>
-                                        <li className="about-item">
-                                            <button onClick={openModal} className="about-btn">Buy Now</button>
-                                        </li>
-                                    </ul>
+                                    <h2 className="about-name">{name}</h2>
+                                    <div>
+                                        <p className='about-text'>{description}</p>
+                                        <button onClick={openModal} className="about-btn">Buy Now</button>
+                                    </div>
                                 </div>
                                 <ul className="header-title">
                                     <li className="header-items">
-                                        <button onClick={() => this.handleClick('uz')} className="header-btn">UZ</button>
+                                        <button onClick={() => change3(true)} className="header-btn">UZ</button>
                                     </li>
                                     <li className="header-items">
-                                        <button onClick={() => this.handleClick('ru')} className="header-btn">RU</button>
+                                        <button onClick={() => change1(true)} className="header-btn">RU</button>
                                     </li>
                                     <li className="header-items">
-                                        <button onClick={() => this.handleClick('en')} className="header-btn">EN</button>
+                                        <button onClick={() => change2(true)} className="header-btn">EN</button>
                                     </li>
                                 </ul>
                             </div>

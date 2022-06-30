@@ -1,9 +1,17 @@
 .box{
     padding-bottom: 200px;
+    margin-top: -30px;
 }
 .box-page{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box__name{
+    text-align: center;
+    color: #000;
+    font-size: 45px;
 }
 
 .container{
@@ -11,7 +19,7 @@
     margin: 0 auto;
 }
 .box-list{
-    margin: 0 30px;
+    margin: 5px 40px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -22,7 +30,7 @@
 
 .box-span{
     background-color: black;
-    width: 150px;
+    width: 170px;
     height: 45px;
 }
 
@@ -41,8 +49,8 @@
 .box-name{
     color: #fff;
     height: 0;
-    line-height: 23px;
-    font-size: 13.6417px;
+    line-height: 16px;
+    font-size: 12px;
     font-weight: 400;
     padding-bottom: 7px;
     padding-left: 5px;
@@ -52,8 +60,9 @@
 
 .box-yellow{
     background: #F8BC3B;
-    width: 150px;
-    height: 100px;
+    width: 170px;
+    height: 130px;
+    text-align: center;
 }
 
 .box-img{
@@ -250,11 +259,11 @@
     }
 
     .box-yellows, .box-yellow, .box-green, .box-orange{
-        width: 160px;
+        width: 150px;
         height: 130px;
     }
     .box-span{
-        width: 160px;
+        width: 150px;
         height: 50px;
     }
 
@@ -282,6 +291,18 @@
 @media (max-width:420px) {
     
     .container{
-        width: 300px;
+        width: 350px;
+    }
+
+    .box__name{
+        font-size: 35px;
+    }
+
+    .box-name{
+        font-size: 12px;
+    }
+
+    .box-list{
+        margin: 5px 3px;
     }
 }
