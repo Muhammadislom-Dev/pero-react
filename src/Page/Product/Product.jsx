@@ -9,7 +9,7 @@ import './Product.css'
 const Product = () =>{
     return(
         <div className="product">
-            <Category />
+            <Category   />
             <Section />
             <Rating />
             <Brand />

@@ -5,12 +5,12 @@ import React from 'react';
 import Bounce from 'react-reveal/Bounce';
 import sticky from '../../Assets/img/Sticky.png'
 
-const HeaderInput = () =>{
+const HeaderInput = ({change1, change2, change3, uzbek, russian, english}) =>{
     return(
         <div className="headerinput">
             <div className="container">
             <Navbar />
-            <Header />
+            <Header change1={change1} change2={change2} change3={change3} uzbek={uzbek} russian={russian} english={english} />
             </div>
             {/* <Box /> */}
             <Bounce top>

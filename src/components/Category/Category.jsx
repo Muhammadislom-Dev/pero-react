@@ -1,10 +1,6 @@
 import Navbar from '../Navbar/Navbar'
 import './Category.css'
 import { Link } from 'react-router-dom'
-import pero from '../../Assets/img/peros.svg'
-import pero1 from '../../Assets/img/pero1.png'
-import pero2 from '../../Assets/img/pero2.png'
-import pero3 from '../../Assets/img/peros.png'
 import mgreen from '../../Assets/img/mgreen.png'
 import mgren from '../../Assets/img/mgren.png'
 import car from '../../Assets/img/car.png'
@@ -13,102 +9,50 @@ import center from '../../Assets/img/callcenter.png'
 import sticky from '../../Assets/img/Sticky.png'
 import { Bounce } from 'react-reveal'
 import { Rotate } from 'react-reveal'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const Category = () => {
+
+    const [data, setData] = useState([])
+
+    useEffect( async () => {
+
+        fetch(`http://93.189.40.27:4500/products/?format=json`)
+        .then((res) => res.json())
+        .then((data) => setData(data))
+    }, [])
+    console.log(data);
+
+    // const [dataProd, setdataProd] = useState(false)
+
+    function loadWindow(item){
+        window.location.reload(false)
+    }
+
+
+    // console.log(data);
     return(
        <div className="categorypage">
            <Navbar />
            <div className="category">
                <div className="container">
-                   <div className="category-page">
-                        <div className="category-list">
-                            <Link className='category-link' to="/about">
-                                <div className="category-span">
-                                    <h5 className="category-pero">PERO</h5>
-                                    <h4 className="category-name">Влажные салфетки</h4>
-                                </div>
-                                <div className="category-yellow">
-                                    <img src={pero} alt="" className="category-img" />
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="category-list">
-                          <Link className='category-link' to="/about">
-                            <div className="category-span">
-                                    <h5 className="category-pero">PERO</h5>
-                                    <h4 className="category-name">Влажные салфетки</h4>
-                                </div>
-                                <div className="category-yellow">
-                                    <img src={pero1} alt="" className="category-picture" />
-                                </div>
-                          </Link>
-                        </div>
-                        <div className="category-list">
-                            <Link className='category-link' to="/about">
-                                <div className="category-span">
-                                    <h5 className="category-pero">PERO</h5>
-                                    <h4 className="category-name">Влажные салфетки</h4>
-                                </div>
-                                <div className="category-yellow">
-                                    <img src={pero2} alt="" className="category-pics" />
-                                </div>
-                             </Link>
-                        </div>
-                        <div className="category-list">
-                            <Link className='category-link' to="/about">
-                                <div className="category-span">
-                                    <h5 className="category-pero">PERO</h5>
-                                    <h4 className="category-name">Влажные салфетки</h4>
-                                </div>
-                                <div className="category-yellow">
-                                    <img src={pero2} alt="" className="category-pics" />
-                                </div>
-                             </Link>
-                        </div>
-                        <div className="category-list">
-                            <Link className='category-link' to="/about">
-                                <div className="category-span">
-                                    <h5 className="category-pero">PERO</h5>
-                                    <h4 className="category-name">Влажные салфетки</h4>
-                                </div>
-                                <div className="category-yellow">
-                                    <img src={pero2} alt="" className="category-pics" />
-                                </div>
-                             </Link>
-                        </div>
-                        <div className="category-list">
-                             <Link className='category-link' to="/about">
-                                <div className="category-span">
-                                    <h5 className="category-pero">PERO</h5>
-                                    <h4 className="category-name">Влажные салфетки</h4>
-                                </div>
-                                <div className="category-yellow">
-                                    <img src={pero2} alt="" className="category-pics" />
-                                </div>
-                             </Link>
-                        </div>
-                        <div className="category-list">
-                            <Link className='category-link' to="/about">
-                                <div className="category-span">
-                                    <h5 className="category-pero">PERO</h5>
-                                    <h4 className="category-name">Влажные салфетки</h4>
-                                </div>
-                                <div className="category-yellow">
-                                    <img src={pero2} alt="" className="category-pics" />
-                                </div>
-                             </Link>
-                        </div>
-                        <div className="category-list">
-                         <Link className='category-link' to="/about">
-                            <div className="category-span">
-                                <h5 className="category-pero">PERO</h5>
-                                <h4 className="category-name">Влажные салфетки</h4>
+                        <div className="category-page">
+                        {
+                            data && data.map ((e) => (
+                                <div className="category-list" onClick={() => loadWindow()} >
+                                <Link className='category-link' to={`/about${e.id}`}>
+                                    <div className="category-span">
+                                        <h5 className="category-pero">PERO</h5>
+                                        <h4 className="category-name">{e.name_ru}</h4>
+                                    </div>
+                                    <div className="category-yellow">
+                                        <img src={e.image} alt="" className="category-picture" />
+                                    </div>
+                                </Link>
                             </div>
-                            <div className="category-yellow">
-                                <img src={pero3} alt="" className="category-pic" />
-                            </div>
-                         </Link>
-                        </div>
+                            ))
+                        }
                    </div>
                </div>
 

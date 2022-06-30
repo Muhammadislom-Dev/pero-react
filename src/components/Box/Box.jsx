@@ -1,56 +1,49 @@
 import './Box.css'
-
-import pero from '../../Assets/img/peros.svg'
-import pero1 from '../../Assets/img/pero1.png'
-import pero2 from '../../Assets/img/pero2.png'
-import pero3 from '../../Assets/img/peros.png'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Box = () =>{
+
+    const [data, setData] = useState([])
+
+    useEffect( async () => {
+
+        fetch(`http://93.189.40.27:4500/products/?format=json`)
+        .then((res) => res.json())
+        .then((data) => setData(data))
+    }, [])
+
+    const [dataProd, setdataProd] = useState(false)
+
+    function loadWindow(item){
+        setdataProd(true)
+        window.location.reload(false)
+        if(dataProd){
+        }
+    }
+
     return(
-        <div className="box">
+        <div id='topproduct'  className="box">
             <div className="container">
-                <div className="box-page">
-                    <div className="box-list">
-                        <div className="box-span">
-                            <h5 className="box-pero">PERO</h5>
-                            <h4 className="box-name">Влажные салфетки</h4>
-                        </div>
-                        <div className="box-yellow">
-                            <img src={pero} alt="" className="box-img" />
-                        </div>
-                    </div>
+                <h1 className="box__name">ТОП ПРОДУКЦИИ</h1>
+                <div  className="box-page">
 
-                    <div className="box-lists">
-                        <div className="box-span">
-                            <h5 className="box-pero">PERO</h5>
-                            <h4 className="box-name">Влажные салфетки</h4>
+                    {
+                    data && data.map((e) => (
+                        <div className="box-list" onClick={() => loadWindow()}>
+                             <Link className='category-link' to={`/about${e.id}`}>
+                                <div className="box-span">
+                                    <h5 className="box-pero">PERO</h5>
+                                    <h4 className="box-name">{e.name_ru}</h4>
+                                 </div>
+                                 <div className="box-yellow">
+                                    <img src={e.image} alt="" className="category-picture" />
+                                </div>
+                             </Link>
                         </div>
-
-                        <div className="box-green">
-                            <img src={pero1} alt="" className="box-picture" />
-                        </div>
-                    </div>
-
-                    <div className="box-circle">
-                        <div className="box-span">
-                            <h5 className="box-pero">PERO</h5>
-                            <h4 className="box-name">Влажные салфетки</h4> 
-                        </div>
-                        <div className="box-orange">
-                            <img src={pero2} alt="" className="box-pics" />
-                        </div>
-                    </div>
-
-                    <div className="box-right">
-                        <div className="box-span">
-                            <h5 className="box-pero">PERO</h5>
-                            <h4 className="box-name">Влажные салфетки</h4>
-                        </div>
-
-                        <div className="box-yellows">
-                            <img src={pero3} alt="" className="box-pic" />
-                        </div>
-                    </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>

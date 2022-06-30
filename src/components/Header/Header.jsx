@@ -1,10 +1,10 @@
 import './Header.css'
-import React, { Component } from 'react';
-import { withTranslation } from 'react-i18next';
+import React, { Component, useState } from 'react';
+import { useTranslation, withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import icon from '../../Assets/img/Icon.png'
 import milk from '../../Assets/img/milk.png'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import mgreen from '../../Assets/img/mgreen.png'
 import mgren from '../../Assets/img/mgren.png'
 import Vector from '../../SVG/Vector'
@@ -13,43 +13,51 @@ import Check from '../../SVG/Check'
 import Rotate from 'react-reveal/Rotate';
 
 
-
-
-class Header extends Component{
-
-    handleClick(lang) {
+const Header = ({change1, change2, change3, uzbek, russian, english}) => {
+    
+    function handleClick(lang) {
         i18next.changeLanguage(lang)
-      }
+    }
+    
+        const { t } = useTranslation();
+
+        function loadWindow(item){
+            // this.setState({count: true})
+            window.location.reload(false)
+            
+        }
+
       
-      render() {
-        const { t } = this.props;
 
     return(
         <div id='home' className="header">
             <div className="container">
                     <div className="header-page">
                         <div className="header-left">
-                            <h2 className="header-name">{t('Thanks.1')}   <br />  <span className="header-names">{t('Why.1')}</span></h2>
-                            <Link to="/category" className="header-link">Посмотреть всё <img src={icon} alt="" className="header-icon" /> </Link>
+                            <h2 className="header-name"> Универсальные   <br />  <span className="header-names"> салфетки</span></h2>
+                           <div   onClick={() =>  loadWindow()}>
+                           <Link to='/category'  
+                             className="header-link">Посмотреть всё  <img src={icon} alt="" className="header-icon" /> </Link>
+                           </div>
                             
                             <ul className="header-list">
                                 <li className="header-item">
                                     <button className="header-span">
                                         <Vector />
                                     </button>
-                                    <p className="header-text">Плотность и мягкость</p>
+                                    <p className="header-text">{t('1page')}</p>
                                 </li>
                                 <li className="header-item">
                                     <button className="header-span">
                                         <Check />
                                     </button>
-                                    <p className="header-text">{t(7)}</p>
+                                    <p className="header-text">{t('1pge')}</p>
                                 </li>
                                 <li className="header-item">
                                     <button className="header-span">
                                         <Lock className="header-img" />
                                     </button>
-                                    <p className="header-text">{t(8)}</p>
+                                    <p className="header-text">{t('1pg')}</p>
                                 </li>
                             </ul>
                         </div>
@@ -60,13 +68,13 @@ class Header extends Component{
                             </div>
                             <ul className="header-title">
                                 <li className="header-items">
-                                    <button onClick={() => this.handleClick('uz')} className="header-btn">UZ</button>
+                                    <button onClick={() => change3(true)} className="header-btn">UZ</button>
                                 </li>
                                 <li className="header-items">
-                                    <button onClick={() => this.handleClick('ru')} className="header-btn">RU</button>
+                                    <button onClick={() => change1(true)} className="header-btn">RU</button>
                                 </li>
                                 <li className="header-items">
-                                    <button onClick={() => this.handleClick('en')} className="header-btn">EN</button>
+                                    <button onClick={() => change2(true)} className="header-btn">EN</button>
                                 </li>
                             </ul>
                         </div>
@@ -84,5 +92,4 @@ class Header extends Component{
         </div>
     )
 }
-}
-export default withTranslation()(Header)
+export default Header

@@ -16,6 +16,7 @@ const Company = () =>{
     return(
         <div id='company' className="company">
             <div className="container">
+                <h1 className="company__name">О НАС</h1>
                 <div className="company-page">
                     <Fade left>
                         <div className="company-left">
@@ -26,18 +27,16 @@ const Company = () =>{
                    <Fade right>
                    <div className="company-right">
                         <h3 className="company-name">О Компании</h3>
-                        <p className="company-text">ООО International Paper является крупнейшим производителем бумажных изделий санитарно-гигиенического назначения. Наша компания ведёт свою деятельность с 2000 года под брендом ELMA.</p>
-
-                        <p className="company-text">Наш товар производится из высококачественного сырья и продается не только в Узбекистане, но и в таких странах, как: Азербайджан, Казахстан, Туркменистан, Таджикистан и Киргизия. Это доказывает, что наш продукт высокого качества и соответствует международным стандартам.</p>
+                        <p className="company-text">{t('bizhaqimizda')}</p>
 
                         <div className="company-title">
                             <button className="company-button">
                                     <Arrow />
                                  Подробнее
                             </button>
-                            <a type='download'  className="company-btn">
+                            <a download href='./amazon.png'  className="company-btn">
                                 <i className="fa fa-download company-icon" aria-hidden="true"></i>
-                                Скачать каталог
+                                {t('skachat')}
                             </a>
                         </div>
                     </div>
@@ -47,15 +46,15 @@ const Company = () =>{
                 <div className="company-box">
                     <div className="company-list">
                         <img src={car} alt="" className="company-pic" />
-                        <h5 className="company-names">{t(10)}</h5>
+                        <h5 className="company-names">{t('delivery')}</h5>
                     </div>
                     <div className="company-list">
                         <img src={check} alt="" className="company-pic" />
-                        <h5 className="company-names">Гарантия качества</h5>
+                        <h5 className="company-names">{t('guarantee')}</h5>
                     </div>
                     <div className="company-list">
                         <img src={center} alt="" className="company-pic" />
-                        <h5 className="company-names">{t(11)}</h5>
+                        <h5 className="company-names">{t('suppot')}</h5>
                     </div>
                 </div>
             </div>

@@ -101,6 +101,13 @@
 }
 
 
+.section__name{
+    color: #fff;
+    font-size: 45px;
+    text-align: center;
+    font-family: serif;
+}
+
 
 @media (max-width:1920px) {
     
@@ -414,5 +421,9 @@
     
     .container{
         width: 300px;
+    }
+
+    .section__name{
+        padding-top: 80px;
     }
 }

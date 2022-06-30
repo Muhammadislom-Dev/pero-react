@@ -5,10 +5,10 @@ import Section from '../../components/Section/Section'
 import Brand from '../Brand/Brand'
 import './AboutPage.css'
 
-const AboutPage = () =>{
+const AboutPage = ({name, img, description, change1, change2, change3}) =>{
     return(
         <div className="aboutPage">
-            <About />
+            <About img={img} name={name} description={description} change1={change1} change2={change2} change3={change3} />
             <Section />
             <Rating />
             <Brand />

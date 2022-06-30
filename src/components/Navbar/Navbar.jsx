@@ -1,8 +1,10 @@
 import React from 'react'
 import './Navbar.css'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import pero from '../../Assets/img/pero.png'
 import call from '../../Assets/img/mp3.png'
+import { useTranslation } from 'react-i18next';
 import Toogle from '../../SVG/Toogle'
 import button from '../../Assets/img/btn.jpg'
 import Modal from 'react-modal';
@@ -42,19 +44,22 @@ const Navbar = () =>{
       setIsOpen(false);
     }
      
+ 
+    
+    const {t} = useTranslation()
 
 return(
 <div className="navbar">
     <div className="container navbar--container">
         <div className="navbar-page">
             <div className="navbar-box">
-                <Link to="/">
+                <a href="/" >
                     <img src={pero} alt="" className="navbar-img" />
-                </Link>
+                </a>
 
                 <a href="#product" className="navbar-titles">
                     <Toogle />
-                    Наша продукция
+                    {t('nashapproduktsitya')}
                 </a>
             </div>
             <ul className="navbar-list">
@@ -65,10 +70,7 @@ return(
                     <a  href="#company" className="navbar-link"> О Компании</a>
                 </li>
                 <li className="navbar-item">
-                    <a href="#" className="navbar-link">НoReCa</a>
-                </li>
-                <li className="navbar-item">
-                    <a href="#" className="navbar-link">Tissue</a>
+                    <a href="#topproduct" className="navbar-link">Top Product</a>
                 </li>
                 <li className="navbar-item">
                     <a href="#form" className="navbar-link">Контакты</a>
@@ -76,7 +78,7 @@ return(
             </ul>
             <div className="navbar-title">
                 <img src={call} alt="" className="navbar-logos" />
-                <Link href="+998911770077" className="navbar-phone">(91) 177 00 77</Link>
+                <a href="tel:+998911770077" className="navbar-phone">(91) 177 00 77</a>
             </div>
             <button onClick={openModal}
             className="navbar-btn"><img src={button} alt="" className="navbar-button" /></button>
@@ -90,6 +92,7 @@ return(
         style={customStyles}
         contentLabel="Example Modal"
       >
+        <div className="navbar__modal">
         <button className='modal-btn' onClick={closeModal}>
          <img src={remove} alt="" className="modal-remove" />
         </button>
@@ -101,10 +104,7 @@ return(
                 <a href="#company" className="modal-link">О Компании</a>
             </li>
             <li className="modal-item">
-                <a href="#" className="modal-link">НoReCa</a>
-            </li>
-            <li className="modal-item">
-                <a href="#" className="modal-link">Tissue</a>
+                <a href="#topproduct" className="modal-link">Top Product</a>
             </li>
             <li className="modal-item">
                 <a href="#form" className="modal-link">Контакты</a>
@@ -117,10 +117,11 @@ return(
                 <a href="#product" className="modal-titles">
                     {/* <img src={toggle} alt="" className="" /> */}
                     <Toogle />
-                    Наша продукция
+                    {t('nashapproduktsitya')}
                 </a>
             </li>
         </ul>
+        </div>
       </Modal>
 </div>
 )

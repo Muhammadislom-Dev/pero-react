@@ -3,6 +3,12 @@
     position: relative;
 }
 
+.form__name{
+    font-size: 45px;
+    color: #3A896A;
+    text-align: center;
+}
+
 .form-list{
     display: flex;
     flex-direction: column;

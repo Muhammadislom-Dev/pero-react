@@ -50,7 +50,7 @@
 
 .category-span{
     background-color: black;
-    width: 150px;
+    width: 170px;
     height: 45px;
 }
 
@@ -70,18 +70,21 @@
     color: #fff;
     height: 0;
     line-height: 23px;
-    font-size: 13.6417px;
+    font-size: 13px;
     font-weight: 400;
     padding-bottom: 7px;
     padding-left: 5px;
     margin-top: 5px;
     font-family: 'Pangolin', cursive;
+
 }
 
 .category-yellow{
     background: #F8BC3B;
-    width: 150px;
-    height: 100px;
+    width: 170px;
+    height: 130px;
+    text-align: center;
+    /* margin: 0 auto; */
 }
 
 .category-img{
@@ -89,9 +92,9 @@
 }
 
 .category-picture{
-    margin-left: -25px;
+    /* margin-left: -25px; */
     height: 120px;
-    margin-top: -20px;
+    object-fit: contain;
 }
 
 .category-pic{
@@ -290,20 +293,18 @@
         margin: 10px 5px;
     }
 
+    .category-name{
+        font-size: 10px;
+    }
+    .category-picture{
+        width: 150px;
+    }
+
     .category-span{
         width: 140px;
     }
     .category-yellow{
         width: 140px;
-    }
-
-    .category-img{
-        width: 160px;
-    }
-
-    .category-picture{
-        width: 180px;
-        height: 110px;
-        margin-top: -9px;
+        text-align: center;
     }
 }

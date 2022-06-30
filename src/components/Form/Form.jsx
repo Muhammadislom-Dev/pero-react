@@ -23,8 +23,8 @@ const Form = () =>{
                 let botMessege = `
                      Assalomu allaykum, Sizga Yangi Xabar!😊%0A
                      Ismi 👤: ${e.target[0].value}%0A
-                     Raqam ☎: ${e.target[1].value}%0A 
-                     Xabar ✏️ ${e.target[2].value}%0A              
+                     Raqam ☎: ${e.target[2].value}%0A 
+                     Xabar ✏️ ${e.target[1].value}%0A              
                 `;
 
                 let url =`https://api.telegram.org/bot5136951868:AAEbk5iaJ1l89mI2H7LXacKLS3ZcMbLHkAE/sendMessage?chat_id=-1001328953154&text=${botMessege}`;
@@ -87,28 +87,29 @@ const Form = () =>{
     return(
         <div id='form' className="form">
             <div className="container">
+                <h1 className="form__name">Контакты</h1>
                 <div className="form-page">
                     <h3 className="form-name">Для сотрудничества дополните форму</h3>
 
                     <form id="myForm" onSubmit={formBtn}  className="form-list">
                         <label className='form-label'>
-                            <input name="name" id="name" type="text"  placeholder={t(18)} className=" form-input" />
+                            <input name="name" id="name" type="text"  placeholder={t('ism')} className=" form-input" />
                             <p className="error-text" id='errorText'>
                                 Siz ismingizni kiritmadingiz
                             </p>
                         </label>
                        <label className='form-label'>
-                            <input name="tel" id="tel" type="tel"  placeholder="+998" className=" form-input" />
+                            <input id="tel" type="number" name='tel'  placeholder="+998" className=" form-input" />
                             <p className="tel-errors" id='errorTel'>
                                 Siz telefon raqamingizni kiritmadingiz
                             </p>
                        </label>
-                        <textarea placeholder={t(19)} id="textarea"
+                        <textarea placeholder={t('xabar')} id="textarea"
                             name="textarea" className="form-text" />
                         <span className="info-errors" id='errorInfo'>
                             Siz xabar kiritmadingiz
                         </span>
-                        <button  id="btnSubmit" type='submit' className="form-btn">{t(20)}</button>
+                        <button  id="btnSubmit" type='submit' className="form-btn">{t('yuborish')}</button>
                     </form>
                 </div>
             </div>

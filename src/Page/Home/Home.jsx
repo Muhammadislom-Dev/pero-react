@@ -3,10 +3,10 @@ import './Home.css'
 import Company from '../../components/Company/Company'
 import Box from '../../components/Box/Box'
 
-const Home = () =>{
+const Home = ({name, img, description}) =>{
     return(
         <div className="home">
-            <Box />
+            <Box  img={img} name={name} description={description} />
             <Company />
         </div>
     )

@@ -5,16 +5,24 @@ import mwhite from '../../Assets/img/mwhite.png'
 import pero2 from '../../Assets/img/pero2.png'
 import pero1 from '../../Assets/img/pero1.png'
 import pero3 from '../../Assets/img/peros.svg'
-
+import { useState } from 'react'
 import icon from '../../Assets/img/strelka.png'
 
 const Section = () =>{
 
-    
+    const [dataProd, setdataProd] = useState(false)
+
+    function loadWindow(item){
+        setdataProd(true)
+        window.location.reload(false)
+        if(dataProd){
+        }
+    }
 
     return(
         <div id='product' className="section">
             <div className="container">
+                <h1 className="section__name">ПРОДУКЦИИ</h1>
                 <div className="section-page">
                     <div className="section-list">
                         <div className="section-circle">
@@ -22,7 +30,7 @@ const Section = () =>{
                         </div>
                         <div className='section-title'>
                             <h3 className="section-name">Бумажные продукции</h3>
-                            <Link to="/category" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link>
+                            <div onClick={() => loadWindow()}><Link  to="/category"  className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link></div>
                         </div>
                         
                     </div>
@@ -33,7 +41,7 @@ const Section = () =>{
                         </div>
                         <div className='section-title'>
                             <h3 className="section-name">Бумажные продукции</h3>
-                            <Link to="/category"   className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link>
+                            <div onClick={() => loadWindow()}><Link  to="/category"  className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link></div>
                         </div>
                     </div>
 
@@ -43,7 +51,7 @@ const Section = () =>{
                         </div>
                         <div className='section-title'>
                             <h3 className="section-name">Бумажные продукции</h3>
-                            <Link to="/category" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link>
+                            <div onClick={() => loadWindow()}><Link  to="/category"  className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link></div>
                         </div>
                     </div>
 
@@ -53,7 +61,7 @@ const Section = () =>{
                         </div>
                         <div className='section-title'>
                             <h3 className="section-name">Бумажные продукции</h3>
-                            <Link to="/category" className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link>
+                            <div onClick={() => loadWindow()}><Link  to="/category"  className="section-link">Посмотреть всё <img src={icon} alt="" className="section-icon" /> </Link></div>
                         </div>
                     </div>
                 </div>

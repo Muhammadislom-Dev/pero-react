@@ -1,10 +1,15 @@
 import './Footer.css'
+import { useTranslation } from 'react-i18next';
 
 import pero from '../../Assets/img/Frame.png'
 import abbacoding from '../../Assets/img/abbacoding.png'
 import abbamedia from '../../Assets/img/abbamedia.png'
 
 const Footer = () =>{
+
+    const {t} = useTranslation()
+
+
     return(
         <>
          <div className="footer">
@@ -12,7 +17,7 @@ const Footer = () =>{
                 <div className="footer-page">
                     <div className="footer-list">
                         <img src={pero} alt="" className="footer-img" />
-                        <p className="footer-text">Quo is the most easier way for transaction with your friends and family, No matter where are you. An exceptional way for make your life one step easier.</p>
+                        <p className="footer-text">{t('pero')}</p>
 
                         <ul className="footer-title">
                             <li className="footer-items">
@@ -35,19 +40,19 @@ const Footer = () =>{
 
                     <ul className="footer-list">
                         <li className="footer-item">
-                            <h3 className="footer-name">Company</h3>
+                            <h3 className="footer-name">{t('company')}</h3>
                         </li>
                        <li className="footer-item"> 
-                            <a href="#" className="footer-link">About Us</a>
+                            <a href="#" className="footer-link">{t('aboutuss')}</a>
                        </li>
                         <li className="footer-item">
                             <a href="#" className="footer-link">Contact Us</a>
                         </li>
                         <li className="footer-item">
-                            <a href="#" className="footer-link">Support</a>
+                            <a href="#" className="footer-link">{t('support')}</a>
                         </li>
                         <li className="footer-item">
-                            <a href="#" className="footer-link">News/Blog</a>
+                            <a href="#" className="footer-link">{t('newsblog')}</a>
                         </li>
                     </ul>
 
@@ -56,10 +61,10 @@ const Footer = () =>{
                             <h3 className="footer-name">Terms</h3>
                         </li>
                         <li className="footer-item">
-                            <a href="#" className="footer-link">Privacy Policy</a>
+                            <a href="#" className="footer-link">{t('peivacy')}</a>
                         </li>
                         <li className="footer-item">
-                        <a href="#" className="footer-link">Terms Of Usage</a>
+                        <a href="#" className="footer-link">{t('termsuasge')}</a>
                         </li>
                        <li className="footer-item">
                             <a href="#" className="footer-link">Areas Of</a>
