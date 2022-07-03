@@ -34,7 +34,7 @@ const Company = () =>{
                                     <Arrow />
                                  Подробнее
                             </button>
-                            <a download href='./dt.txt'  className="company-btn">
+                            <a download href='./d.docx'  className="company-btn">
                                 <i className="fa fa-download company-icon" aria-hidden="true"></i>
                                 {t('skachat')}
                             </a>
