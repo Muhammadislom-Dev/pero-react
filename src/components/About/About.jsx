@@ -2,7 +2,7 @@ import './About.css'
 import i18next from 'i18next';
 import React from 'react';
 import Fade from 'react-reveal/Fade';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import milk from '../../Assets/img/milkk.png'
@@ -126,6 +126,21 @@ const About = ({name, img, description, change1, change2, change3}) => {
     }
 
 
+    const [data, setData] = useState([])
+
+    useEffect( async () => {
+
+        fetch(`http://93.189.40.27:4500/products/?format=json`)
+        .then((res) => res.json())
+        .then((data) => setData(data))
+    }, [])
+    console.log(data);
+
+    function loadWindow(item){
+        window.location.reload(false)
+    }
+
+
     return(
         <div className="aboutpage">
             <Navbar />
@@ -175,46 +190,25 @@ const About = ({name, img, description, change1, change2, change3}) => {
                     <h2 className="about-names">Other production</h2>
                       <Fade bottom>
                         <div className="about__page">
-                        <div className="category-list">
-                            <div className="category-span">
-                                <h5 className="category-pero">PERO</h5>
-                                <h4 className="category-name">Влажные салфетки</h4>
-                            </div>
-                            <div className="category-yellow">
-                                <img src={pero2} alt="" className="category-pics" />
-                            </div>
-                        </div>
-                        <div className="category-list">
-                            <div className="category-span">
-                                <h5 className="category-pero">PERO</h5>
-                                <h4 className="category-name">Влажные салфетки</h4>
-                            </div>
-                            <div className="category-yellow">
-                                <img src={pero2} alt="" className="category-pics" />
-                            </div>
-                        </div>
-                        <div className="category-list">
-                            <div className="category-span">
-                                <h5 className="category-pero">PERO</h5>
-                                <h4 className="category-name">Влажные салфетки</h4>
-                            </div>
-                            <div className="category-yellow">
-                                <img src={pero2} alt="" className="category-pics" />
-                            </div>
-                        </div>
-                        <div className="category-list">
-                            <div className="category-span">
-                                <h5 className="category-pero">PERO</h5>
-                                <h4 className="category-name">Влажные салфетки</h4>
-                            </div>
-                            <div className="category-yellow">
-                                <img src={pero2} alt="" className="category-pics" />
-                            </div>
-                        </div>
+                            {
+                                data && data.map((e) => (
+                                    <div className="category-list">
+                                        <Link className='category-link' to={`/about${e.id}`} >
+                                            <div className="category-span">
+                                                <h5 className="category-pero">PERO</h5>
+                                                <h4 className="category-name">{e.name}</h4>
+                                            </div>
+                                            <div className="category-yellow">
+                                                <img src={e.image} alt="" className="category-pics" />
+                                            </div>
+                                        </Link>
+                                    </div>
+                                ))
+                            }
                         </div>
                       </Fade>
-                    <div className="about-buttons">
-                        <button className="about-button">Back</button>
+                    <div onClick={() => loadWindow()} className="about-buttons">
+                        <Link to="/" className="about-button">Back</Link>
                     </div>
                 </div>
             </div>

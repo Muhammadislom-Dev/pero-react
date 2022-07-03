@@ -80,6 +80,7 @@
     display: flex;
     justify-content:center;
     align-items: center;
+    flex-wrap: wrap;
 }
 .about-box{
     padding: 40px 0;
@@ -108,7 +109,7 @@
     margin: 0 15px;
 }
 
-.about-button{
+.about-buttons{
     width: 140px;
     height: 28px;
     border: 1px solid #3A896A;
@@ -117,11 +118,22 @@
     font-family: 'Pangolin';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 15px;
     color: #3A896A;
     margin: 20px 0;
     transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.about-button{
+    display: flex;
+    margin-top:5px;
+    flex-direction: column;
+    color: #3A896A;
+    text-decoration: none;
 }
 
 .about-times{
@@ -131,9 +143,7 @@
     margin-left: 320px;
 }
 
-.about-button:hover{
-    background-color: #3A896A;
-    color: #fff;
+.about-buttons:hover{
     transform: scale(1.2);
 }
 

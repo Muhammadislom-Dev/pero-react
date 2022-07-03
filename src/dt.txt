@@ -1,0 +1,2534 @@
+Dastur ish davomida ob'ekt turini aniqlash uchun qaysi operatordan foydalanilishi kerak?
+====
+#typeid
+====
+type
+====
+tupeid
+====
+typeof
+++++
+Dastur ish davomida ob'ekt turini aniqlash uchun qaysi qaysi sarlavha faylini qo'shish kerak?
+====
+#typeinfo
+====
+type
+====
+typeid
+====
+typeof
+++++
+type_info sinfida aniqlangan sinf a'zosi yozilgan qatorni ko'rsating.
+====
+#bool operator != (const type_info &ob);
+====
+bool operator <=(const type_info &ob);
+====
+bool operator >=(const type_info &ob);
+====
+const char name();
+++++
+type_info sinfida aniqlangan sinf a'zosi yozilgan qatorni ko'rsating.
+====
+bool operator >= (const type_info &ob);
+====
+bool operator <(const type_info &ob);
+====
+operator >(const type_info &ob);
+====
+#const char *name();
+++++
+type_info sinfida qandau solishtirish amallari qayta yklangan?
+====
+# == va !=  .
+====
+hamma solishtirish amallari
+====
+hech qaysisi
+====
+> , ==  va <
+
+++++
+
+dynamic_cast operatori ...
+====
+#dastur davomida polimorf turlarini bir turga olib kelish uchun ishlatiladi
+====
+const va/yoki volatile modifikatorlarini oshkor ravishda bekor qilish uchun ishlatiladi
+====
+har qanday standart  turlarni konvertatsiya qilish uchun ishlatiladi
+====
+har qanday butun sonlar turini har qanday ko'rsatgich turiga o'zgartirishga imkon beradi va aksincha
+++++
+const_cast operatori ...
+====
+dastur davomida polimorf turlarini bir turga olib kelish uchun ishlatiladi
+====
+#const va/yoki volatile modifikatorlarini oshkor ravishda bekor qilish uchun ishlatiladi
+====
+har qanday standart  turlarni konvertatsiya qilish uchun ishlatiladi
+====
+har qanday butun sonlar turini har qanday ko'rsatgich turiga o'zgartirishga imkon beradi va aksincha
+++++
+ static_cast operatori ...
+====
+dastur davomida polimorf turlarini bir turga olib kelish uchun ishlatiladi
+====
+const va/yoki volatile modifikatorlarini oshkor ravishda bekor qilish uchun ishlatiladi
+====
+#har qanday standart  turlarni konvertatsiya qilish uchun ishlatiladi
+====
+har qanday butun sonlar turini har qanday ko'rsatgich turiga o'zgartirishga imkon beradi va aksincha
+++++
+reinterpret_cast operatori ...
+====
+dastur davomida polimorf turlarini bir turga olib kelish uchun ishlatiladi
+====
+const va/yoki volatile modifikatorlarini oshkor ravishda bekor qilish uchun ishlatiladi
+====
+har qanday standart  turlarni konvertatsiya qilish uchun ishlatiladi
+====
+#har qanday butun sonlar turini har qanday ko'rsatgich turiga o'zgartirishga imkon beradi va aksincha
+++++
+namespace – bu …
+====
+#nomlar fazosi bo’lib, bir-xil identifakatorlarni bitta dasturda ishlatish muammosini hal qiladi. 
+==== 
+standart nomlar fazosi bo’lib, kiritish chiqarish buyruqlaridan foydalanish muammosini hal qiladi.
+====
+umumiy nomlar fazosi bo’lib, barcha C++ dasturlash tili buyruqlaridan foydalanish muammosini hal qiladi.
+====
+noma’lum nomlar fazosi bo’lib, noma’lum tiplardan foydalanish muammosini hal qiladi. 
+++++
+Namespace nomlar fazosini yaratishning umumiy strukturasi qaysi javobda keltirilgan.
+====
+#namespace <nom>  { . . . }
+====
+template<typename T> void funk (T a) {cout<<a<<endl;}
+====
+class Name { . . . }
+====
+using namespace std;
+++++
+Yaratilgan namespace nomlar fazosidagi class va metodlardan foydalanish uchun murojaat qaysi operator orqali amalga oshiriladi?
+====
+#::
+=====
+->
+====
+;
+====
+>
+++++
+Kompilyatsiya natijasida ekranga nima chop qilinishini aniqlang:
+#include <iostream>
+using namespace std;
+namespace A {void fun(int i) { cout <<i-2;} }
+namespace B {void fun(int j) { cout <<j+2;} }
+int main() {int i=12;     B::fun(i);   return 0;}
+====
+#14
+====
+10
+====
+12
+====
+kompilyatsiyada hatolik
+++++
+Kompilyatsiya natijasida ekranga nima chop qilinishini aniqlang:
+#include <iostream>
+using namespace std;
+namespace A {void fun(int i) { cout <<i+2;} }
+namespace A {void fun(float i) { cout <<i-2;} }
+int main() {float i=12;    A::fun(i);   return 0; }
+====
+14
+====
+#10
+====
+12
+====
+kompilyatsiyada hatolik
+++++
+Kompilyatsiya natijasida ekranga nima chop qilinishini aniqlang:
+#include <iostream>
+using namespace std;
+namespace A {  void fun(int i) { cout <<i+2;} 
+  namespace B {  void fun(int i) { cout <<i-2;}   }}
+using namespace A;
+int main() {int  i=12;   fun(i);    return 0; }
+====
+#14
+====
+10
+====
+12
+====
+kompilyatsiyada hatolik
+++++
+Kompilyatsiya natijasida ekranga nima chop qilinishini aniqlang:
+#include <iostream>
+using namespace std;
+namespace A {  void fun(int i) { cout <<i+2;} 
+  namespace B {    void fun(int i) { cout <<i-2;}   }}
+using namespace A;
+int main() {int  i=12;   B::fun(i);  return 0; }
+====
+14
+====
+#10
+====
+12
+====
+kompilyatsiyada hatolik
+++++
+Kompilyatsiya natijasida ekranga nima chop qilinishini aniqlang:
+#include <iostream>
+using namespace std;
+namespace A {  void fun(int i) { cout <<i+2;} 
+  namespace B {    void fun(int i) { cout <<i-2;}   }}
+namespace C=A::B;
+int main() {int  i=12;   C::fun(i);  return 0; }
+====
+14
+====
+#10
+====
+12
+====
+kompilyatsiyada hatolik
+++++
+Polimorf turlarni o’zgartirish uchun qaysi turdan-turga o’tkazuvchi operatordan foydalaniladi?
+====
+#dynamic_cast
+==== 
+static_cast
+====
+const_cast
+====
+reinterpret_cast
+++++
+static_cast operatorining strukturasini ko’rsating:
+====
+#static_cast<Tur_nomi>(qiymat)
+====
+static_cast<qiymat>(Tur_nomi)
+====
+static_cast(qiymat)<Tur_nomi>
+====
+static_cast(Tur_nomi)<qiymat>
+++++
+dynamic_cast operatsiyasi strukturasini ko’rsating:
+====
+#dynamic_cast<tur *>(obyektKorsatgich) yoki dynamic_cast<tur &>(obyektOzgaruvchi)
+====
+dynamic_cast<tur &>(obyektKorsatgich) yoki dynamic_cast<tur *>(obyektOzgaruvchi)
+====
+dynamic_cast (obyektKorsatgich) <tur *> yoki dynamic_cast (obyektOzgaruvchi) <tur &>
+====
+dynamic_cast (obyektKorsatgich) <tur *>
+++++
+Qaysi  operator statistik ma'lumotlar turlarini oshkor ravishda o'zgartirish uchun ishlatiladi?
+====
+#static_cast
+====
+dynamic_cast 
+====
+reinterpret_cast
+====
+const_cast
+++++
+Konteynerlar kutubxonasi – bu …
+====
+#dasturchilarga ma'lumotlar tuzilmalarini osonlikcha amalga oshirishga imkon beradigan sinf andozalari va algoritmlarning universal to'plamidir  
+====
+massivlar ustida amallar bajarish uchun funksiyalar to’plamidir
+====
+dasturchilarga ma'lumotlar tuzilmalarini osonlikcha amalga oshirishga imkon beradigan o’zgaruvchi va funkisiyalar to’plamidir
+====
+umumiy kutubxona bo’lib, barcha C++ dasturlash tili buyruqlaridan foydalanish muammosini hal qiladi
+++++
+Konteyner – bu …
+====
+#uning elementlari uchun ajratilgan xotirani boshqaradi va ularga to'g'ridan-to'g'ri yoki iteratorlar orqali kirish uchun funksiyalarni ta'minlaydi.
+====
+uning elementlari qiymatlarini almashtirish va ularga to'g'ridan-to'g'ri murojaat qilish uchun funksiyalarni ta'minlaydi
+====
+uning elementlari uchun ajratilgan xotirani boshqaradi, ammo ularga to'g'ridan-to'g'ri murojaatni amalga oshirmaydi
+====
+uning elementlarining qiymaylarini yig’indisini hisoblash uchun funksiyalarni ta'minlaydi
+++++
+Konteyner sinflarining asosiy turkumlari to’g’ri ko’rsatilgan javobni toping? 
+====
+#Ketma-ket va assotsiativ(tartiblangan va tartiblanmagan) 
+====
+Massivli, ketma-ket va tartiblanmagan assotsiativ
+====
+Adapterli va ketma-ket
+====
+Deque, vector, list, forward_list
+++++
+Ketma-ket konteynerlarni turlari ko’rsatilgan javobni toping?
+====
+#vector, array, deque, forward_list, list
+====
+vector, array, set, map
+====
+array, list, forward_list, map, unordered_map
+====
+set, unordered_set, multiset, unordered_multiset
+++++
+array sinfi shablonini ko’rsating:
+====
+#template<class T, std::size_t N> struct array;
+====
+template<class T> struct array;
+====
+template<class T, std::size_t N, std::size_t N > struct array;
+====
+template<class T> array{T a={}};
+++++
+Konteynerdan ixtiyoriy elementni o’chirish funksiyasi?
+====
+#erase()
+====
+insert()
+====
+clear()
+====
+delete()
+++++
+vector konteyneridan oxirgi elementni o’chirish funksiyasi?
+====
+#pop_back()
+====
+push_back() 
+====
+erase()
+====
+clear()
+++++
+Qaysi funksiya array konteynerida ko'rsatilgan elementga  kirishni ta'minlaydi (indeks tekshiruvi bilan)
+====
+#at
+====
+[]
+====
+front
+====
+back
+++++
+Qaysi funksiya vector konteynerida ko'rsatilgan elementga  kirishni ta'minlaydi (indeks tekshiruvi bilan)
+====
+#at
+====
+[]
+====
+front
+====
+back
+++++
+Qaysi funksiya deque konteynerida ko'rsatilgan elementga  kirishni ta'minlaydi (indeks tekshiruvi bilan)
+====
+#at
+====
+[]
+====
+front
+====
+back
+++++
+Qaysi funksiya deque konteynerida ko'rsatilgan elementga kirishni ta'minlaydi (indeks tekshiruvi bajarilmaydi)
+====
+at
+====
+#[]
+====
+front
+====
+back
+++++
+Qaysi funksiya array konteynerida ko'rsatilgan elementga kirishni ta'minlaydi (indeks tekshiruvi bajarilmaydi)
+====
+at
+====
+#[]
+====
+front
+====
+back
+++++
+Qaysi funksiya vector konteynerida ko'rsatilgan elementga kirishni ta'minlaydi (indeks tekshiruvi bajarilmaydi)
+====
+at
+====
+#[]
+====
+front
+====
+back
+++++
+Qaysi funksiya vector konteynerida birinchi elementga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+#front
+====
+back
+++++
+Qaysi funksiya array konteynerida birinchi elementga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+#front
+====
+back
+++++
+Qaysi funksiya royxatning (list konteynerida) birinchi elementiga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+#front
+====
+back
+++++
+Qaysi funksiya bir  tomonlama bog'langan royxatning (forward_list konteynerida) birinchi elementiga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+#front
+====
+back
+++++
+Qaysi funksiya ikki tomonlama navbat (deque konteynerida) birinchi elementiga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+#front
+====
+back
+++++
+Qaysi funksiya vector konteynerida oxirgi elementga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+front
+====
+#back
+++++
+Qaysi funksiya array konteynerida oxirgi elementga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+front
+====
+#back
+++++
+Qaysi funksiya royxatning (list konteynerida) oxirgi elementiga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+front
+====
+#back
+++++
+Qaysi funksiya bir  tomonlama bog'langan royxatning (forward_list konteynerida) oxirgi elementiga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+front
+====
+#back
+++++
+Qaysi funksiya ikki tomonlama navbat (deque) konteynerida oxirgi elementiga kirishni ta'minlaydi
+====
+at
+====
+[]
+====
+front
+====
+#back
+++++
+Qaysi funksiya array konteyneri bo'shmi yoki bo'sh emasligini tekshirib beradi?
+====
+#empty
+=====
+clear
+====
+full
+====
+count
+++++
+Qaysi funksiya vector konteyneri bo'shmi yoki bo'sh emasligini tekshirib beradi?
+====
+#empty
+=====
+clear
+====
+full
+====
+count
+++++
+Qaysi funksiya list konteyneri bo'shmi yoki bo'sh emasligini tekshirib beradi?
+====
+#empty
+=====
+clear
+====
+full
+====
+count
+++++
+Qaysi funksiya forward_list konteyneri bo'shmi yoki bo'sh emasligini tekshirib beradi?
+====
+#empty
+=====
+clear
+====
+full
+====
+count
+++++
+Qaysi funksiya deque konteyneri bo'shmi yoki bo'sh emasligini tekshirib beradi?
+====
+#empty
+=====
+clear
+====
+full
+====
+count
+++++
+Qaysi funksiy deque konteynerida elementlar sonini qaytaradi?
+====
+#size
+====
+max_size
+====
+full
+====
+count
+++++
+Qaysi funksiy array konteynerida elementlar sonini qaytaradi?
+====
+#size
+====
+max_size
+====
+full
+====
+count
+++++
+Qaysi funksiy vector konteynerida elementlar sonini qaytaradi?
+====
+#size
+====
+max_size
+====
+full
+====
+count
+++++
+Qaysi funksiy list konteynerida elementlar sonini qaytaradi?
+====
+#size
+====
+max_size
+====
+full
+====
+count
+++++
+Qaysi funksiy forward_list konteynerida elementlar sonini qaytaradi?
+====
+#size
+====
+max_size
+====
+full
+====
+count
+++++
+Qaysi funksiy forward_list konteynerida ro'yhatning boshiga yangi elementni qo'shishni ta`milaydi?
+====
+#push_front
+====
+push_back
+====
+pop_front
+====
+pop_back
+++++
+Qaysi funksiy list konteynerida ro'yhatning boshiga yangi elementni qo'shishni ta`milaydi?
+====
+#push_front
+====
+push_back
+====
+pop_front
+====
+pop_back
+++++
+Qaysi funksiy vector konteynerida massivning oxiriga yangi elementni qo'shishni ta`milaydi?
+====
+push_front
+====
+#push_back
+====
+pop_front
+====
+pop_back
+++++
+Qaysi funksiy list konteynerida ro'yhatning oxiriga yangi elementni qo'shishni ta`milaydi?
+====
+push_front
+====
+#push_back
+====
+pop_front
+====
+pop_back
+++++
+Qaysi funksiya ikki tomonlama navbat (deque) konteynerida birinchi elementini ochirishni ta'minlaydi
+====
+push_front
+====
+push_back
+====
+#pop_front
+====
+pop_back
+++++
+Qaysi funksiy list konteynerida ro'yhatning birinchi elementini ochirishni ta'minlaydi
+====
+push_front
+====
+push_back
+====
+#pop_front
+====
+pop_back
+++++
+Qaysi funksiy vector konteynerida massivning oxirgi elementini ochirishni ta'minlaydi
+====
+push_front
+====
+push_back
+====
+pop_front
+====
+#pop_back
+++++
+Assotsiativ konteynerlar – bu … 
+====
+#tezkor qidiruv qobiliyatiga ega bo'lgan va tartiblangan ma'lumotlar tuzilishini  amalga oshiradi
+====  
+massivlar ustida amallar bajarish uchun funksiyalar to’plamidir
+====
+dasturchilarga ma'lumotlar tuzilmalarini osonlikcha amalga oshirishga imkon beradigan o’zgaruvchi va funksiyalar to’plamidir
+====
+uning elementlari qiymatlarini almashtirish va ularga to'g'ridan-to'g'ri murojaat qilish uchun funksiyalarni ta'minlaydi. 
+++++
+Tartiblangan assotsiativ konteynerlar turlari ko’rsatilgan javobni toping?
+====
+#set, map, multiset, multimap
+====
+vector, array, deque, forward_list, list
+====
+array, list, forward_list, map, unordered_map
+====
+set, unordered_set, multiset, unordered_multiset
+++++
+set konteyneri – bu … 
+====
+#kalit bo'yicha tartiblangan noyob kalitlarning to'plami
+====
+kalitlarga ajratilgan kalit-qiymat juftliklari to'plami, kalitlar noyobdir
+====
+kalitlar bo’yicha tartiblangan to’plam, kalitlar noyob bo’lmaydi
+====
+kalitlar bo’yicha tartiblangan, kalit-qiymat juftliklari to'plami, kalitlar noyob bo’lmaydi 
+++++
+map konteyneri – bu …
+====
+#kalitlarga ajratilgan kalit-qiymat juftliklari to'plami, kalitlar noyobdir
+====
+kalit bo'yicha tartiblangan noyob kalitlarning to'plami
+====
+kalitlar bo’yicha tartiblangan to’plam, kalitlar noyob bo’lmaydi
+====
+kalitlar bo’yicha tartiblangan, kalit-qiymat juftliklari to'plami, kalitlar noyob bo’lmaydi
+++++
+multiset konteyneri – bu …
+====
+#kalitlar bo’yicha tartiblangan to’plam, kalitlar noyob bo’lmaydi
+====
+kalitlar bo’yicha tartiblangan, kalit-qiymat juftliklari to'plami, kalitlar noyob bo’lmaydi
+====
+kalitlarga ajratilgan kalit-qiymat juftliklari to'plami, kalitlar noyobdir
+====
+kalit bo'yicha tartiblangan noyob kalitlarning to'plami
+++++
+multimap konteyneri – bu … 
+====
+#kalitlar bo’yicha tartiblangan, kalit-qiymat juftliklari to'plami, kalitlar noyob bo’lmaydi
+====
+kalitlarga ajratilgan kalit-qiymat juftliklari to'plami, kalitlar noyobdir
+====
+kalit bo'yicha tartiblangan noyob kalitlarning to'plami
+====
+kalitlar bo’yicha tartiblangan to’plam, kalitlar noyob bo’lmaydi
+++++
+Belgilangan kalitdan kattaroq yoki unga teng bo'lgan kalit bilan to'plamdagi birinchi elementga ishora qiluvchi iteratorni qaytaruvchi funksiya qaysi?
+====
+#lower_bound
+====
+upper_bound
+====
+emplace_hint
+====
+c_bound
+++++
+map konteynerida saralash nima asosida bajariladi?
+====
+#Kalit (key)
+====
+Qiymat (value)
+====
+Element 
+====
+Saralash amalga oshirilmaydi
+++++
+Assotsiativ konteynerlardagi kalitlari parametr tomonidan berilgan kalitga mos keladigan to'plamdagi elementlar sonini qaytaruvchi metod – bu … 
+====
+#count(value)
+====
+size(value)
+====
+insert(value)
+====
+count_value(value)
+++++
+set va multiset konteynerlari farqini toping.
+====
+#set konteynerida kalitlar noyob hisoblansa, multiset konteynerida kalitlar takrorlanishi mumkin.
+====
+set konteyneri va multiset konteynerining faqrli jihatlari yo’q.
+====
+set konteyneridagi metodlar multiset konteynerida ishlatib bo’lmaydi.
+====
+multiset konteynerida kalitlar noyob hisoblansa, set konteynerida kalitlar takrorlanishi mumkin.
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+   set <int> st;
+   for(int i=1; i<10;i++;)
+      st.insert(i%4);
+   for (auto it: st) 
+    cout<<st<<" ";
+====
+#0 1 2 3
+====
+0 1 2 3 4 5 6 7 8 9
+====
+1 2 3
+====
+1 2 3 0 1 2 3 0 1
+Dastur parchasi natijasida ekranga nima chop etiladi
+   multiset <int> st;
+   for(int i=1; i<10;i++;)
+      st.insert(i%4);
+   for (auto it: st) 
+    cout<<st<<" ";
+====
+0 1 2 3
+====
+0 1 2 3 4 5 6 7 8 9
+====
+#0 0 1 1 1 2 2 3 3
+====
+1 2 3 0 1 2 3 0 1
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+    map <int, char> st;
+    pair <int, char> zap;
+    int i; char s;
+	for (i=0; i<10;i++)
+	{
+		zap.first=i;
+		zap.second='A'+i;
+		st.insert(zap);
+	}
+	cout<<"\nst[1]="<<st[1];
+====
+#st[1]=B
+====
+kompilyasiyada hatolik yz beradi
+====
+st[1]=A
+====
+B
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+    multimap <int, char> st;
+    pair <int, char> zap;
+    int i; char s;
+	for (i=0; i<10;i++)
+	{
+		zap.first=i%4;
+		zap.second='A'+i;
+		st.insert(zap);
+	}
+	cout<<"\nst[1]="<<st[1];
+====
+st[1]=B
+====
+#kompilyasiyada hatolik yz beradi
+====
+st[1]=A
+====
+B
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+multimap <int, char> st;
+	pair <int, char> zap;
+    int i; char s;
+	for (i=0; i<10;i++)
+	{
+		zap.first=i%4;
+		zap.second='A'+i;
+		st.insert(zap);
+	}
+	for(auto it=st.begin(); it!=st.end(); it++)
+		cout<<it->first<<" ";
+====
+# 0 0 0 1 1 1 2 2 3 3 
+====
+kompilyasiyada hatolik yz beradi
+====
+0 1 2 3 0 1 2 3 1 2
+====
+0 1 2 3 4 5 6 7 8 9
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+    multimap <int, char> st;
+    pair <int, char> zap;
+    int i; char s;
+	for (i=0; i<10;i++)
+	{
+		zap.first=i%4;
+		zap.second='A'+i;
+		st.insert(zap);
+	}
+	for(auto it=st.begin(); it!=st.end(); it++)
+		cout<<it->second<<" ";
+====
+0 0 0 1 1 1 2 2 3 3 
+====
+kompilyasiyada hatolik yz beradi
+====
+#A E I B F J С G D H
+====
+A B C D E F G H I J
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+    map <int, char> st;
+    pair <int, char> zap;
+    int i; char s;
+	for (i=0; i<10;i++)
+	{
+		zap.first=i;
+		zap.second='A'+i;
+		st.insert(zap);
+	}
+	for(auto it=st.begin(); it!=st.end(); it++)
+		cout<<it->second<<" ";
+====
+0 1 2 3 4 5 6 7 8 9
+====
+kompilyasiyada hatolik yz beradi
+====
+A E I B F J С G D H
+====
+#A B C D E F G H I J
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+    map <int, char> st;
+    pair <int, char> zap;
+
+    int i; char s;
+	for (i=9; i>=0;i--)
+	{
+		zap.first=i%4;
+		zap.second='A'+i;
+		st.insert(zap);
+	}
+	cout<<"\nst[1]="<<st[1];
+====
+st[1]=B
+====
+kompilyasiyada hatolik yz beradi
+====
+st[1]=A
+====
+#st[1]=J
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+multimap <int, char> st;
+    pair <int, char> zap;
+	multimap <int, char> :: iterator it,itb,ite;
+    int i; char s;
+	for (i=9; i>=0;i--)
+	{
+		zap.first=i%4;
+		zap.second='A'+i;
+		st.insert(zap);
+	}
+	itb=st.lower_bound(1);
+    ite=st.upper_bound(1);
+	for (it=itb; it!=ite; it++)
+		cout<<it->second<<" ";
+====
+#J F B
+====
+kompilyasiyada hatolik yz beradi
+====
+A B C
+====
+J I H
+++++
+Dastur parchasi natijasida ekranga nima chop etiladi
+multimap <int, char> st;
+    pair <int, char> zap;
+	multimap <int, char> :: iterator it,itb,ite;
+    int i; char s;
+	for (i=0; i<10;i++)
+	{
+		zap.first=i%4;
+		zap.second='A'+i;
+		st.insert(zap);
+	}
+	itb=st.lower_bound(1);
+    ite=st.upper_bound(1);
+	for (it=itb; it!=ite; it++)
+		cout<<it->second<<" "; 
+
+====
+#B F J 
+====
+kompilyasiyada hatolik yz beradi
+====
+A B C
+====
+J B F
+ ++++
+set konteynerida count funksiyasi berilgan kalitga mos keladigan to'plamdagi elementlar sonini qaytaradi. Uninq qiymati 
+====
+#0 yoki 1
+====
+[0,N] - N bu erda elementlar soni
+====
+[1,N] - N bu erda elementlar soni
+====
+1
+++++
+multiset konteynerida count funksiyasi berilgan kalitga mos keladigan to'plamdagi elementlar sonini qaytaradi. Uninq qiymati 
+====
+0 yoki 1
+====
+#[0,N] - N bu erda elementlar soni
+====
+[1,N] - N bu erda elementlar soni
+====
+1
+++++
+Assotsiativ konteynerlardagi kalitlari parametr tomonidan berilgan kalitga mos keladigan birinchi elementga ishora qiluvchi iteratorni qaytaruvchi funksya
+====
+#find
+====
+egual_range
+====
+count
+====
+lower_bound
+++++
+Funktsiya (assotsiativ konteynerlarda) ma'lum bir kalitga mos keladigan diapazon (bir qator elementlar iteratorlari) qaytaradi - bu ...
+====
+find
+====
+#egual_range
+====
+count
+====
+lower_bound 
+++++
+Kaliti belgilangan kalitdan katta bo'lgan  to'plamdagi birinchi elementga ishora qiluvchi iteratorni qaytaruvchi funksiya qaysi?
+====
+lower_bound
+====
+#upper_bound
+====
+emplace_hint
+====
+c_bound
+++++
+multimap konteynerdagi max_size () funktsiyasining vazifasi nima?
+====
+# elementlarning mumkin bo'lgan maksimal sonini qaytaradi
+====
+kalitlar to'plamidan maksimal qiymatni qaytaradi
+====
+ma'lumotlar to'plamidan maksimal qiymatni qaytaradi
+====
+konteyner uchun kerak bolgan maksimal xotira hajmini qaytaradi
+++++
+
+Stek deb shunday ….. ga aytiladiki, stekka kelib tushgan oxirgi elementga birinchi bo’lib xizmat ko’rsatiladi va stekdan chiqariladi. Tushib qoldirilgan so’zni toping?
+====
+Sinf
+====
+#Struktura 
+====
+Union 
+====
+Xotira 
+++++
+Stekga xizmat ko’rsatishning turi qanday xizmat ko’rsatish hisoblanadi?
+====
+FIFO
+====
+#LIFO
+====
+FOFO
+====
+Unikal
+++++
+Stek so’zning ma’nosi qaysi javobda to’g’ri ko’rsatilgan?
+====
+Umumiy
+=====
+#G’aram
+====
+Tuzilma
+====
+Xususiy
+++++
+Stek oxiridagi elementni o’chirishni qaysi funksiya amalga oshiradi?
+====
+front.pop()
+====
+#pop()
+====
+push()
+====
+delete()
+++++
+Navbatga xizmat ko’rsatishning turi qanday xizmat ko’rsatish hisoblanadi?
+====
+LIFO
+====
+#FIFO
+====
+FOFO
+====
+Unikal
+++++
+FIFO ning kengaytmasi qaysi qatorda to’g’ri keltirilgan?
+====
+find input find output
+====
+#first in first out
+====
+last input fist output
+====
+first input find output
+++++
+ikki tomonlama navbat to’g’ri keltirilgan qatorni ko’rsating?
+====
+qeque
+====
+#deque
+====
+twoque
+====
+listque
+++++
+Ikki tomonlama navbatga oxiridan element qo’shish funksiyasi to’g’ri ko’rsatilgan qatorni ko’rsating?
+====
+poptail()
+====
+pushtail()
+====
+#push.back()
+====
+pop.back()
+++++
+Quyidagi dastur qismi bajarilishi natijasida ekranga qanday natija chiqadi?
+ stack<int> mystack; 
+    mystack.push(1); 
+    if (mystack.empty()) {         cout << "True";    } 
+    else {         cout << "False";    } 
+    return 0; 
+====
+True
+====
+#False
+====
+Kompilyatsiyada xatolik
+====
+1
+++++
+Quyidagi dastur  qismi bajarilishi natijasida ekranga qanday natija chiqadi?
+ int sum = 0; 
+    stack<int> mystack; 
+    mystack.push(1);     mystack.push(8);     mystack.push(3); 
+    mystack.push(6);     mystack.push(2); 
+    while (!mystack.empty()) {sum = sum + mystack.top();  mystack.pop();  } 
+    cout << sum;  
+====
+1
+====
+#20
+====
+18
+====
+2
+++++
+Quyidagi dastur qismi  bajarilishi natijasida ekranga qanday natija chiqadi?
+ int sum = 0; 
+    stack<int> mystack; 
+    mystack.push(1);  mystack.push(8);  mystack.push(3); 
+    mystack.push(6);  mystack.push(2);  cout << mystack.size(); 
+====
+8
+====
+#5
+====
+6
+====
+0
+++++
+Quyidagi dastur qismi  bajarilishi natijasida ekranga qanday natija chiqadi?
+ queue<int> myqueue; 
+    myqueue.push(0);     myqueue.push(1);     myqueue.push(2); 
+    while (!myqueue.empty()) { cout << ' ' << myqueue.front();         myqueue.pop();    }
+====
+2 1 0
+====
+#0 1 2
+====
+2 0 1
+====
+0 2 1
+++++
+Quyidagi dastur qismi  bajarilishi natijasida ekranga qanday natija chiqadi?
+ queue<int> myqueue; 
+    myqueue.push(0);   myqueue.push(1);     myqueue.push(2); 
+    myqueue.pop();  myqueue.pop(); 
+    while (!myqueue.empty()) { cout << ' ' << myqueue.front(); myqueue.pop();     }
+====
+1
+====
+#2
+====
+0
+====
+Kompilyatsiyada xatolik
+++++
+Quyidagi dastur qismi  bajarilishi natijasida ekranga qanday natija chiqadi?
+ int c = 0; 
+    queue<int> myqueue;    myqueue.push(5); 
+    myqueue.push(13);     myqueue.push(0); 
+    myqueue.push(9);     myqueue.push(4); 
+    while (!myqueue.empty()) {  myqueue.pop();  c++; } 
+    cout << c;
+====
+31
+====
+#5
+====
+13
+====
+4
+
+++++
+Quyidagi dastur qismi  bajarilishi natijasida ekranga qanday natija chiqadi?
+ queue<int> myqueue; 
+    myqueue.push(3);     myqueue.push(4);     myqueue.push(1); 
+    myqueue.push(7);     cout << myqueue.front(); 
+   
+====
+4
+====
+#3
+====
+7
+====
+1
+
+++++
+Quyidagi dastur qismi  bajarilishi natijasida ekranga qanday natija chiqadi?
+ queue<int> myqueue; 
+    myqueue.push(8);     myqueue.push(7);     myqueue.push(6); 
+    myqueue.push(5);     myqueue.push(4);     myqueue.push(3); 
+    myqueue.push(2);     myqueue.push(1);
+    if (myqueue.front() > myqueue.back()) { 
+        cout << myqueue.front() - myqueue.back();     } 
+    else if (myqueue.front() < myqueue.back()) { 
+        cout << myqueue.back() - myqueue.front();     } 
+    else        cout << "0";
+====
+4
+====
+#7
+====
+1
+====
+0
+
+++++
+Quyidagi dastur qismi  bajarilishi natijasida ekranga qanday natija chiqadi?
+ queue<int> myqueue; 
+    myqueue.push(8);     myqueue.push(7);     myqueue.push(6); 
+    myqueue.push(5);     myqueue.push(4);     myqueue.push(3); 
+    myqueue.push(2);     myqueue.push(1);
+    if (myqueue.front() < myqueue.back()) { 
+        cout << myqueue.front() - myqueue.back();     } 
+    else if (myqueue.front() == myqueue.back()) { 
+        cout << myqueue.back() - myqueue.front();     } 
+    else      cout << "0";
+====
+4
+====
+#0
+====
+1
+====
+7
+++++
+
+Funktorlarga ta'rif bering
+====
+#funksiyalar kabi murojaat qilish (chaqirish) mumkin bo’lgan ixtiyoriy tipdagi ob'yektlardir.
+====
+shablon funksiyalardir
+====
+faqat rost (true) yoki yolg'on qiymatlar qaytaradigan funksiyalardir
+====
+ob`ekt qaytaradigan funksiyalardir
+
+++++
+
+Funktorlarga ta'rif bering
+====
+#funktorlar () amali qayta yuklangan 	sinfdir
+====
+shablon funksiyalardir
+====
+faqat rost (true) yoki yolg'on qiymatlar qaytaradigan funksiyalardir
+====
+ob`ekt qaytaradigan funksiyalardir
+
+++++
+
+LILO tamoyili asosida qurilgan ma'lumotlar to'plami (konteyner) qanday nomlanadi (oxirgi kirish - oxirgi chiqish: oxirgi kirish - oxirgi chiqish)?
+
+====
+#queue
+====
+stack
+====
+deque
+====
+priority_queue
+
+++++
+
+LIFO  tamoyili asosida qurilgan ma'lumotlar to'plami (konteyner) qanday nomlanadi?
+====
+queue
+====
+#stack
+====
+deque
+====
+priority_queue
+
+++++
+
+Qaysi konteyner adapterida faqat push_back, pop_back va pop_front operatsiyalarini anqlangan ?
+====
+queue
+====
+#stack
+====
+deque
+====
+priority_queue
+
+++++
+
+Salmog'i katta bo'lgan elementga brinchi bolib xizmat korsatiladi tamoyili asosida qurilgan ma'lumotlar to'plami (konteyner) qanday nomlanadi?
+====
+queue
+====
+stack
+====
+deque
+====
+#priority_queue
+
+++++
+
+Qaysi adapterning elementlari konteynerda kamayish tartibda joylashgan bo'ladi?
+====
+queue
+====
+stack
+====
+deque
+====
+#priority_queue
+
+++++
+
+Ikki tomonlama navbatga oxiridan elementni o'chirish funksiyasi to’g’ri ko’rsatilgan qatorni ko’rsating?
+====
+poptail()
+====
+pushtail()
+====
+push.back()
+====
+#pop.back()
+++++
+
+algorithm kutubhonasidagi all_of funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#p predikatining [first, last) diapazondagi barcha elementlar uchun true qaytarishini tekshiradi.
+====
+p predikatining [first, last) diapazondagi kamida bitta element uchun true qaytarishini tekshiradi.
+====
+p predikatining [first, last) diapazonidagi biron bir element uchun true qaytmasligini tekshiradi.
+====
+Berilgan funktsiyonal f ni (amalni) [first, last) diapzonidagi har bir element uchun qo'llaniladi.
+++++
+
+algorithm kutubhonasidagi any_of funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+p predikatining [first, last) diapazondagi barcha elementlar uchun true qaytarishini tekshiradi.
+====
+#p predikatining [first, last) diapazondagi kamida bitta element uchun true qaytarishini tekshiradi.
+====
+p predikatining [first, last) diapazonidagi biron bir element uchun true qaytmasligini tekshiradi.
+====
+Berilgan funktsiyonal f ni (amalni) [first, last) diapzonidagi har bir element uchun qo'llaniladi.
+++++
+algorithm kutubhonasidagi none_of funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+p predikatining [first, last) diapazondagi barcha elementlar uchun true qaytarishini tekshiradi.
+====
+p predikatining [first, last) diapazondagi kamida bitta element uchun true qaytarishini tekshiradi.
+====
+#p predikatining [first, last) diapazonidagi biron bir element uchun true qaytmasligini tekshiradi.
+====
+Berilgan funktsiyonal f ni (amalni) [first, last) diapzonidagi har bir element uchun qo'llaniladi.
+
+++++
+
+algorithm kutubhonasidagi for_each funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+p predikatining [first, last) diapazondagi barcha elementlar uchun true qaytarishini tekshiradi.
+====
+p predikatining [first, last) diapazondagi kamida bitta element uchun true qaytarishini tekshiradi.
+====
+p predikatining [first, last) diapazonidagi biron bir element uchun true qaytmasligini tekshiradi.
+====
+#Berilgan funktsiyonal f ni (amalni) [first, last) diapzonidagi har bir element uchun qo'llaniladi.
+
+++++
+
+algorithm kutubhonasidagi count( InputIt first, InputIt last, const T &value )  funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#[first, last) diapazondagi elementlar ichida qiymati value teng bolgan elementlar sonini  qaytaradi.
+====
+[first, last) diapazondagi elementlar ichidan p predikatining true qaytarganlar sonini qaytaradi.
+====
+Ikki diapazonda mos kelmagan elementlarning birinchi juftligini qaytaradi, biri [first1, last1) va ikkinchisi first2 dan boshlanadi.
+====
+[S_first, s_last] oralig'ining istalgan elementlarini [first, last) oralig'idan qidiradi.
+
+++++
+
+algorithm kutubhonasidagi count_if( InputIt first, InputIt last, UnaryPredicate p )  funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi elementlar ichida qiymati value teng bolgan elementlar sonini  qaytaradi.
+====
+#[first, last) diapazondagi elementlar ichidan p predikatining true qaytarganlar sonini qaytaradi.
+====
+Ikki diapazonda mos kelmagan elementlarning birinchi juftligini qaytaradi, biri [first1, last1) va ikkinchisi first2 dan boshlanadi.
+====
+[S_first, s_last] oralig'ining istalgan elementlarini [first, last) oralig'idan qidiradi.
+
+++++
+
+algorithm kutubhonasidagi mismatch( InputIt1 first1, InputIt1 last1, InputIt2 first2 )  funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi elementlar ichida qiymati value teng bolgan elementlar sonini  qaytaradi.
+====
+[first, last) diapazondagi elementlar ichidan p predikatining true qaytarganlar sonini qaytaradi.
+====
+#Ikki diapazonda mos kelmagan elementlarning birinchi juftligini qaytaradi, biri [first1, last1) va ikkinchisi first2 dan boshlanadi.
+====
+[S_first, s_last] oralig'ining istalgan elementlarini [first, last) oralig'idan qidiradi.
+
+++++
+
+algorithm kutubhonasidagi find_first_of( InputIt first, InputIt last,ForwardIt s_first, ForwardIt s_last )  funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi elementlar ichida qiymati value teng bolgan elementlar sonini  qaytaradi.
+====
+[first, last) diapazondagi elementlar ichidan p predikatining true qaytarganlar sonini qaytaradi.
+====
+Ikki diapazonda mos kelmagan elementlarning birinchi juftligini qaytaradi, biri [first1, last1) va ikkinchisi first2 dan boshlanadi.
+====
+#[S_first, s_last] oralig'ining istalgan elementlarini [first, last) oralig'idan qidiradi.
+
+++++
+
+algorithm kutubhonasidagi  find( InputIt first, InputIt last, const T& value ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+# [first, last) diapazondagi qiymati value teng bolgan birinchi elementni topadi.
+====
+[first, last) diapazondagi p predikat true qiymat qaytaruvchi birinchi elementni topadi.
+====
+[first, last) diapazondagi q predikat false qiymat qaytaruvchi birinchi elementni topadi.
+====
+[S_first, s_last) elementlari [s_first, s_last] ketma-ketligining [first, last) diapazondagi so'nggi paydo bo'lishini qidiradi.
+
+++++
+
+algorithm kutubhonasidagi   find_end( ForwardIt1 first, ForwardIt1 last,ForwardIt2 s_first, ForwardIt2 s_last ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi qiymati value teng bolgan birinchi elementni topadi.
+====
+[first, last) diapazondagi p predikat true qiymat qaytaruvchi birinchi elementni topadi.
+====
+[first, last) diapazondagi q predikat false qiymat qaytaruvchi birinchi elementni topadi.
+====
+#[S_first, s_last) elementlari [s_first, s_last] ketma-ketligining [first, last) diapazondagi so'nggi paydo bo'lishini qidiradi.
+
+++++
+
+algorithm kutubhonasidagi   find_if( InputIt first, InputIt last, UnaryPredicate p ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi qiymati value teng bolgan birinchi elementni topadi.
+====
+#[first, last) diapazondagi p predikat true qiymat qaytaruvchi birinchi elementni topadi.
+====
+[first, last) diapazondagi q predikat false qiymat qaytaruvchi birinchi elementni topadi.
+====
+[S_first, s_last) elementlari [s_first, s_last] ketma-ketligining [first, last) diapazondagi so'nggi paydo bo'lishini qidiradi.
+
+++++
+
+algorithm kutubhonasidagi  find_if_not( InputIt first, InputIt last,UnaryPredicate q ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi qiymati value teng bolgan birinchi elementni topadi.
+====
+[first, last) diapazondagi p predikat true qiymat qaytaruvchi birinchi elementni topadi.
+====
+#[first, last) diapazondagi q predikat false qiymat qaytaruvchi birinchi elementni topadi.
+====
+[S_first, s_last) elementlari [s_first, s_last] ketma-ketligining [first, last) diapazondagi so'nggi paydo bo'lishini qidiradi.
+
+++++
+
+algorithm kutubhonasidagi   adjacent_find( ForwardIt first, ForwardIt last ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi qiymati value teng bolgan birinchi elementni topadi.
+====
+[first, last) diapazondagi p predikat true qiymat qaytaruvchi birinchi elementni topadi.
+====
+#[first, last) diapazondagi  ikkita bir xil qo'shni elementlarni qidiradi.
+====
+[S_first, s_last) elementlari [s_first, s_last] ketma-ketligining [first, last) diapazondagi so'nggi paydo bo'lishini qidiradi.
+
+++++
+
+algorithm kutubhonasidagi   copy( InputIt first, InputIt last, OutputIt d_first ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#[first, last) diapazon elementlarini d_first bilan boshlanadigan diapazonga nysxa oladi.
+====
+faqat pred predikati true qiymat qaaytaradigan elementlarni qaytaradigan elementlardan  nysxa oladi.
+====
+[first, last) diapazondagi  ikkita bir xil qo'shni elementlarni qidiradi.
+====
+ [first, last) diapazondan d_lastgacha tugaydigan intervalgacha nusxa ko'chiradi.Ob'ektlar teskari tartibda ko'chiriladi,lekin ularning nisbiy artibi saqlanib qoladi. 
+
+++++
+
+algorithm kutubhonasidagi    copy_if( InputIt first, InputIt last, OutputIt d_first,UnaryPredicate pred ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazon elementlarini d_first bilan boshlanadigan diapazonga nysxa oladi.
+====
+#faqat pred predikati true qiymat qaaytaradigan elementlarni qaytaradigan elementlardan  nysxa oladi.
+====
+[first, last) diapazondagi  ikkita bir xil qo'shni elementlarni qidiradi.
+====
+ [first, last) diapazondan d_lastgacha tugaydigan intervalgacha nusxa ko'chiradi. Ob'ektlar teskari tartibda ko'chiriladi,lekin ularning nisbiy tartibi saqlanib qoladi. 
+
+++++ 
+
+algorithm kutubhonasidagi  copy_backward( BidirectionalIterator1 first,BidirectionalIterator1 last,    BidirectionalIterator2 d_last ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazon elementlarini d_first bilan boshlanadigan diapazonga nysxa oladi.
+====
+faqat pred predikati true qiymat qaaytaradigan elementlarni qaytaradigan elementlardan  nysxa oladi.
+====
+[first, last) diapazondagi  ikkita bir xil qo'shni elementlarni qidiradi.
+====
+ #[first, last) diapazondan d_lastgacha tugaydigan intervalgacha nusxa ko'chiradi.Ob'ektlar teskari tartibda ko'chiriladi,lekin ularning nisbiy tartibi saqlanib qoladi. 
+
+++++ 
+
+algorithm kutubhonasidagi  move( InputIt first, InputIt last, OutputIt d_first )funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#Elementlarni [first, last) diapazondan d_first bilan boshlangan boshqa diapazonga ko'chiradi
+====
+Bir qator elementlarni teskari tartibda yangi joyga ko'chiradi
+====
+Bir qator elementlarga ma'lum bir qiymatni belgilaydi
+====
+Agar count> 0 bo'lsa, belgilangan qiymatni diapazondagi birinchi  count elementlariga d_first boshlab o'zlashtiradi. Aks holda u hech narsa qilmaydi.
+
+++++ 
+
+algorithm kutubhonasidagi  move_backward( BidirIt1 first, BidirIt1 last, BidirIt2 d_last )funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+Elementlarni [first, last) diapazondan d_first bilan boshlangan boshqa diapazonga ko'chiradi
+====
+#Bir qator elementlarni teskari tartibda yangi joyga ko'chiradi
+====
+Bir qator elementlarga ma'lum bir qiymatni belgilaydi
+====
+Agar count> 0 bo'lsa, belgilangan qiymatni diapazondagi birinchi  count elementlariga d_first boshlab o'zlashtiradi. Aks holda u hech narsa qilmaydi.
+
+++++ 
+
+algorithm kutubhonasidagi fill( ForwardIt first, ForwardIt last, const T& value )funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+Elementlarni[first, last) diapazondan d_first bilan boshlangan boshqa diapazonga ko'chiradi
+====
+Bir qator elementlarni teskari tartibda yangi joyga ko'chiradi
+====
+#Bir qator elementlarga ma'lum bir qiymatni belgilaydi
+====
+Agar count> 0 bo'lsa, belgilangan qiymatni diapazondagi birinchi  count elementlariga d_first boshlab o'zlashtiradi. Aks holda u hech narsa qilmaydi.
+
+++++ 
+
+algorithm kutubhonasidagi fill_n( OutputIt first, Size count, const T& value )funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+Elementlarni [first, last) diapazondan d_first bilan boshlangan boshqa diapazonga ko'chiradi
+====
+Bir qator elementlarni teskari tartibda yangi joyga ko'chiradi
+====
+Bir qator elementlarga ma'lum bir qiymatni belgilaydi
+====
+#Agar count> 0 bo'lsa, belgilangan qiymatni diapazondagi birinchi  count elementlariga d_first boshlab o'zlashtiradi.
+Aks holda u hech narsa qilmaydi.
+++++ 
+algorithm kutubhonasidagi generate( ForwardIt first, ForwardIt last, Generator g ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#[first, last) diapazondagi har bir elementni berilgan funktsiya ob'ekti g hosil qilgan qiymatga belgilaydi
+====
+agar count> 0 bo'lsa, belgilangan funktsiya ob'ekti tomonidan yaratilgan qiymatlarni diapazondagi birinchi count elementlariga first  boshlab o'zlashtiradi. Aks holda u hech narsa qilmaydi.
+====
+value qiymatga teng bo'lgan barcha elementlarni [first, last) diapazondan olib tashlaydi
+====
+p predikati true bo'lgan barcha elementlarni  [first, last) diapazondanolib tashlaydi.
+
+++++ 
+
+algorithm kutubhonasidagi  generate_n( OutputIt first, Size count, Generator g ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi har bir elementni berilgan funktsiya ob'ekti g hosil qilgan qiymatga belgilaydi
+====
+#agar count> 0 bo'lsa, belgilangan funktsiya ob'ekti tomonidan yaratilgan qiymatlarni diapazondagi birinchi count elementlariga first  boshlab o'zlashtiradi. Aks holda u hech narsa qilmaydi.
+====
+value qiymatga teng bo'lgan barcha elementlarni [first, last) diapazondan olib tashlaydi
+====
+p predikati true bo'lgan barcha elementlarni  [first, last) diapazondanolib tashlaydi.
+
+++++ 
+
+algorithm kutubhonasidagi  remove( ForwardIt first, ForwardIt last, const T& value ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi har bir elementni berilgan funktsiya ob'ekti g hosil qilgan qiymatga belgilaydi
+====
+agar count> 0 bo'lsa, belgilangan funktsiya ob'ekti tomonidan yaratilgan qiymatlarni diapazondagi birinchi count elementlariga first  boshlab o'zlashtiradi. Aks holda u hech narsa qilmaydi.
+====
+#value qiymatga teng bo'lgan barcha elementlarni [first, last) diapazondan olib tashlaydi
+====
+p predikati true bo'lgan barcha elementlarni  [first, last) diapazondanolib tashlaydi.
+
+++++ 
+
+algorithm kutubhonasidagi remove_if( ForwardIt first, ForwardIt last, UnaryPredicate p ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last) diapazondagi har bir elementni berilgan funktsiya ob'ekti g hosil qilgan qiymatga belgilaydi
+====
+agar count> 0 bo'lsa, belgilangan funktsiya ob'ekti tomonidan yaratilgan qiymatlarni diapazondagi birinchi count elementlariga first  boshlab o'zlashtiradi. Aks holda u hech narsa qilmaydi.
+====
+value qiymatga teng bo'lgan barcha elementlarni [first, last) diapazondan olib tashlaydi
+====
+#p predikati true bo'lgan barcha elementlarni  [first, last) diapazondan 
+  olib tashlaydi.
+
+++++
+
+algorithm kutubhonasidagi  remove_copy( InputIt first, InputIt last, OutputIt d_first,const T& value ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#Qiymati value qiymatga teng elementlardan tashqari elementlarni  [first, last) diapazondan d_first bilan boshlanadigan diapazonga nusxa ko'chiradi
+====
+p predikati true elementlardan tashqari elementlarni  [first, last) diapazondan d_first bilan boshlanadigan diapazonga nusxa ko'chiradi
+====
+old_value ga teng [first, last) diapazondagi barcha elementlarni new_value bilan almashtiradi.
+====
+p predikati true ga teng [first, last) diapazondagi barcha elementlarni new_value bilan almashtiradi.
+
+++++ 
+
+algorithm kutubhonasidagi  remove_copy_if( InputIt first, InputIt last, OutputIt d_first,   UnaryPredicate p )funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#p predikati true elementlardan tashqari elementlarni [first, last) diapazondan d_first bilan boshlanadigan diapazonga nusxa ko'chiradi
+====
+Qiymati value qiymatga teng elementlardan tashqari elementlarni  [first, last) diapazondan d_first bilan boshlanadigan diapazonga nusxa ko'chiradi
+====
+old_value ga teng [first, last) diapazondagi barcha elementlarni new_value bilan almashtiradi.
+====
+p predikati true ga teng [first, last) diapazondagi barcha elementlarni new_value bilan almashtiradi.
+
+++++ 
+
+algorithm kutubhonasidagi  replace( ForwardIt first, ForwardIt last,const T& old_value, const T& new_value ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+Qiymati value qiymatga teng elementlardan tashqari elementlarni  [first, last) diapazondan  d_first bilan boshlanadigan diapazonga nusxa ko'chiradi
+====
+p predikati true elementlardan tashqari elementlarni [first, last) diapazondan d_first bilan boshlanadigan diapazonga nusxa ko'chiradi
+====
+#old_value ga teng [first, last) diapazondagi barcha elementlarni new_value bilan almashtiradi.
+====
+p predikati true ga teng [first, last) diapazondagi barcha elementlarni new_value bilan almashtiradi.
+
+++++ 
+
+algorithm kutubhonasidagi  replace_if( ForwardIt first, ForwardIt last, UnaryPredicate p, const T& new_value ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+Qiymati value qiymatga teng elementlardan tashqari elementlarni  [first, last) diapazondan d_first bilan boshlanadigan diapazonga nusxa ko'chiradi
+====
+p predikati true elementlardan tashqari elementlarni [first, last) diapazondan d_first bilan boshlanadigan diapazonga nusxa ko'chiradi
+====
+old_value ga teng [first, last) diapazondagi barcha elementlarni new_value bilan almashtiradi.
+====
+#p predikati true ga teng [first, last) diapazondagi barcha elementlarni new_value bilan almashtiradi.
+
+++++
+
+algorithm kutubhonasidagi  swap( T& a, T& b ); funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#a va b qiymatlarini almashtiradi.
+====
+a va b massivlarni almashtirish.
+====
+Ob'ektlarni [first1, last1] diapazoni bilan almashtirish first2 bilan boshlanadi. Ushbu ikki diapazondagi elementlarning soni bir xil bo'lishi kerak.
+====
+Ikki iterator tomonidan ko'rsatilgan elementlarning qiymatlarini almashtiradi.
+
+++++ 
+
+algorithm kutubhonasidagi swap( T2 (&a)[N], T2 (&b)[N]) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+a va b qiymatlarini almashtiradi.
+====
+#a va b massivlarni almashtirish
+====
+Ob'ektlarni [first1, last1] diapazoni bilan almashtirish first2 bilan boshlanadi. Ushbu ikki diapazondagi elementlarning soni bir xil bo'lishi kerak.
+====
+Ikki iterator tomonidan ko'rsatilgan elementlarning qiymatlarini almashtiradi.
+
+++++ 
+
+algorithm kutubhonasidagi  swap_ranges( ForwardIt1 first1, ForwardIt1 last1, ForwardIt2 first2 ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+a va b qiymatlarini almashtiradi.
+====
+a va b massivlarni almashtirish
+====
+#Ob'ektlarni [first1, last1] diapazoni bilan almashtirish
+first2 bilan boshlanadi. Ushbu ikki diapazondagi elementlarning soni bir xil bo'lishi kerak.
+====
+Ikki iterator tomonidan ko'rsatilgan elementlarning qiymatlarini almashtiradi.
+
+++++ 
+
+algorithm kutubhonasidagi  iter_swap( ForwardIt1 a, ForwardIt2 b )
+funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+a va b qiymatlarini almashtiradi.
+====
+a va b massivlarni almashtirish
+====
+Ob'ektlarni [first1, last1] diapazoni bilan almashtirish first2 bilan boshlanadi. Ushbu ikki diapazondagi elementlarning soni bir xil bo'lishi kerak.
+====
+#Ikki iterator tomonidan ko'rsatilgan elementlarning qiymatlarini almashtiradi.
+
+++++
+
+algorithm kutubhonasidagi  reverse( BidirIt first, BidirIt last ) 
+funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#[first, last)  oralig'idagi elementlarning tartibini teskarisiga o'zgartiring.
+====
+[first, last) diapazondagi elementlarni almashtiradi, shunda n_first yangi diapazonda birinchi, n_first-1 esa oxirgisi bo'ladi.
+====
+Barcha ketma-ket takrorlangan elementlarni [first, last)  diapazondan 
+olib tashlaydi va yangi diapazonning oxirgi elementidan keyingi elementga iteratorni qaytaradi.
+====
+d_first dan boshlab yangi diapazonga elementlarni yozib, ikkita tartiblangan [first1, last1) va [first2, last2] oralig'ini birlashtiradi.
+
+++++
+
+algorithm kutubhonasidagi  rotate( ForwardIt first, ForwardIt n_first, ForwardIt last ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last)  oralig'idagi elementlarning tartibini teskarisiga o'zgartiring.
+====
+#[first, last) diapazondagi elementlarni almashtiradi, shunda n_first yangi diapazonda birinchi, n_first-1 esa oxirgisi bo'ladi.
+====
+Barcha ketma-ket takrorlangan elementlarni [first, last)  diapazondan 
+olib tashlaydi va yangi diapazonning oxirgi elementidan keyingi elementga iteratorni qaytaradi.
+====
+d_first dan boshlab yangi diapazonga elementlarni yozib,  ikkita tartiblangan [first1, last1) va [first2, last2] oralig'ini birlashtiradi.
+
+++++
+
+algorithm kutubhonasidagi   unique( ForwardIt first, ForwardIt last )
+funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last)  oralig'idagi elementlarning tartibini teskarisiga o'zgartiring.
+====
+[first, last) diapazondagi elementlarni almashtiradi, shunda n_first yangi diapazonda birinchi, n_first-1 esa oxirgisi bo'ladi.
+====
+#Barcha ketma-ket takrorlangan elementlarni [first, last)  diapazondan 
+olib tashlaydi va yangi diapazonning oxirgi elementidan keyingi elementga iteratorni qaytaradi.
+====
+d_first dan boshlab yangi diapazonga elementlarni yozib,  ikkita tartiblangan [first1, last1) va [first2, last2] oralig'ini birlashtiradi.
+
+++++
+
+algorithm kutubhonasidagi  merge( InputIt1 first1, InputIt1 last1,InputIt2 first2, InputIt2 last2, OutputIt d_first ) funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+[first, last)  oralig'idagi elementlarning tartibini teskarisiga o'zgartiring.
+====
+[first, last) diapazondagi elementlarni almashtiradi, 
+shunda n_first yangi diapazonda birinchi, n_first-1 esa oxirgisi bo'ladi.
+====
+Barcha ketma-ket takrorlangan elementlarni [first, last)  diapazondan 
+olib tashlaydi va yangi diapazonning oxirgi elementidan keyingi elementga iteratorni qaytaradi. 
+====
+#d_first dan boshlab yangi diapazonga elementlarni yozib,  ikkita tartiblangan [first1, last1) va [first2, last2] oralig'ini birlashtiradi.
+
+++++
+
+algorithm kutubhonasidagi set_difference  funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#ikki to'plam o'rtasidagi farqni hisoblab chiqadi
+====
+ikkita to'plamning kesishishini hisoblab chiqadi
+====
+ikki to'plam orasidagi nosimmetrik farqni hisoblab chiqadi 
+====
+ikkita to'plamning birlashishini hisoblab chiqadi
+
+++++
+
+algorithm kutubhonasidagi set_intersection funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+ikki to'plam o'rtasidagi farqni hisoblab chiqadi
+====
+#ikkita to'plamning kesishishini hisoblab chiqadi
+====
+ikki to'plam orasidagi nosimmetrik farqni hisoblab chiqadi
+====
+ikkita to'plamning birlashishini hisoblab chiqadi
+
+++++
+
+algorithm kutubhonasidagi set_symmetric_difference funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+ikki to'plam o'rtasidagi farqni hisoblab chiqadi
+====
+ikkita to'plamning kesishishini hisoblab chiqadi
+====
+#ikki to'plam orasidagi nosimmetrik farqni hisoblab chiqadi 
+====
+ikkita to'plamning birlashishini hisoblab chiqadi
+
+++++
+
+algorithm kutubhonasidagi set_union funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+ikki to'plam o'rtasidagi farqni hisoblab chiqadi
+====
+ikkita to'plamning kesishishini hisoblab chiqadi
+====
+ikki to'plam orasidagi nosimmetrik farqni hisoblab chiqadi
+====
+#ikkita to'plamning birlashishini hisoblab chiqadi
+
+++++
+
+algorithm kutubhonasidagi max_element funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#diapazondagi eng katta elementni qaytaradi
+====
+diapazondagi eng kichik elementni qaytaradi
+====
+diapazondagi eng kichik va eng katta elementlarni qaytaradi
+====
+ikkita to'plam elementlarning bir xilligini aniqlaydi
+
++++++
+
+algorithm kutubhonasidagi min_element funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+diapazondagi eng katta elementni qaytaradi
+====
+#diapazondagi eng kichik elementni qaytaradi
+====
+diapazondagi eng kichik va eng katta elementlarni qaytaradi
+====
+ikkita to'plam elementlarning bir xilligini aniqlaydi
+
++++++
+
+algorithm kutubhonasidagi minmax_element funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+diapazondagi eng katta elementni qaytaradi
+====
+diapazondagi eng kichik elementni qaytaradi
+====
+#diapazondagi eng kichik va eng katta elementlarni qaytaradi
+====
+ikkita to'plam elementlarning bir xilligini aniqlaydi
+
++++++
+
+algorithm kutubhonasidagi equal funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+diapazondagi eng katta elementni qaytaradi
+====
+diapazondagi eng kichik elementni qaytaradi
+====
+diapazondagi eng kichik va eng katta elementlarni qaytaradi
+====
+#ikkita to'plam elementlarning bir xilligini aniqlaydi
+
+++++
+
+algorithm kutubhonasidagi accumulate funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+#diapason elementlar yig'indisini hisoblaydi
+====
+ikkita diapazon elementlarining skalyar ko'paytmasini hisoblaydi
+====
+diapazondagi qo'shni elementlar orasidagi farqlarni hisoblab chiqadi
+====
+elementlar diapazonining qisman yig'indisini hisoblaydi
+
+++++
+
+algorithm kutubhonasidagi inner_product funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+diapason elementlar yig'indisini hisoblaydi
+====
+#ikkita diapazon elementlarining skalyar ko'paytmasini hisoblaydi
+====
+diapazondagi qo'shni elementlar orasidagi farqlarni hisoblab chiqadi
+====
+elementlar diapazonining qisman yig'indisini hisoblaydi
+
+++++
+
+algorithm kutubhonasidagi adjacent_difference funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+diapason elementlar yig'indisini hisoblaydi
+====
+ikkita diapazon elementlarining skalyar ko'paytmasini hisoblaydi
+====
+#diapazondagi qo'shni elementlar orasidagi farqlarni hisoblab chiqadi
+====
+elementlar diapazonining qisman yig'indisini hisoblaydi
+
+++++
+
+algorithm kutubhonasidagi partial_sum funksiyasining vazifasi to'g'ri ko'rsatilgan qatorni ko'rsating
+====
+diapason elementlar yig'indisini hisoblaydi
+====
+ikkita diapazon elementlarining skalyar ko'paytmasini hisoblaydi
+====
+diapazondagi qo'shni elementlar orasidagi farqlarni hisoblab chiqadi
+====
+#elementlar diapazonining qisman yig'indisini hisoblaydi
+
+++++
+
+Berilgan qiymatning konteynerda birinchi marta paydo bo'lishini  qidiruvchi  qanday funktsiya ?
+====
+#find()
+====
+find_if()
+====
+count()
+====
+count_if()
+
+++++
+
+Konteyner elementlariga murojat qilish vositasi qaysi?
+====
+#iterator
+====
+vector
+====
+list
+====
+операция ()
+
+++++
+
+Qaysi funktsiya konteynerning birinchi elementiga ishora qiluvchi iteratorni qaytaradi (agar konteynerda biron bir element bo'lsa)?
+====
+#begin()
+====
+end()
+====
+iterator_begin()
+====
+iterator_end()
+
+++++
+
+Qaysi funktsiya, konteynerning oxirgi elementdan so'ng bo'sh joyga ishora qiluvchi iteratorni qaytaradi?
+====
+#end()
+====
+begin()
+====
+iterator_begin()
+====
+iterator_end()
+
+++++
+
+Qaysi ibora iterator tomonidan ko'rsatilgan element qiymatini olishga imkon beradi?
+====
+#*iter
+====
+++iter
+====
+--iter
+====
+&iter
+
+++++
+
+Keyingi elementga kirish uchun qaysi ibora iteratorni oldinga siljitishga imkon beradi?
+====
+#++iter
+====
+*iter 
+====
+--iter
+====
+&iter
+
+++++
+
+Qaysi ibora oldingi elementga murojaat qilish uchun iteratorni orqaga qaytarishga imkon beradi?
+====
+#--iter 
+====
+++iter
+====
+*iter
+====
+&iter
+
+++++
+
+Qaysi amal iteratordan n pozitsiya oldinroq bo'lgan iteratorni qaytaradi?
+====
+#iter + n
+====
+iter – n
+====
+iter += n
+====
+iter –= n
+
+++++
+
+Qaysi amal iteratordan n pozitsiya orqaroq bo'lgan iteratorni qaytaradi?
+====
+#iter – n 
+====
+iter + n
+====
+iter += n
+====
+iter –= n
+
+++++
+
+Qaysi operatsiya iteratorni n holatini oldinga siljitadi?
+====
+#iter += n 
+====
+iter – n
+====
+iter + n
+====
+iter –= n
+
+++++
+
+Qaysi operatsiya iteratorni n holatini orqaga siljitadi?
+====
+#iter –= n 
+====
+iter – n
+====
+iter += n
+====
+iter + n
+
+++++
+
+ter1 va iter2 iteratorlari orasidagi pozitsiyalar sonini qanday operatsiya qaytaradi?
+====
+#iter1 – iter2 
+====
+iter1 + iter2
+====
+iter1 – iter1
+====
+iter2 – iter2
+
+++++
+
+Qaysi funktsiya yordamchi funktsiyani uchinchi parametr sifatida qabul qiladi, 
+shunda biz xoxlagan usulni saralashimiz mumkin?
+====
+#sort()
+====
+greator()
+====
+sort_if()
+====
+arr_sort()
+
+++++
+
+Dasturning parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+valarray<int> sample(12); 
+for (int i = 0; i < 13; ++i)  sample[i] = i; 
+valarray<int> bar = sample[slice(2, 3, 4)]; 
+cout << "slice(2, 3, 4):"; 
+for (size_t n = 0; n < bar.size(); n++) 
+cout << ' ' << bar[n]; 
+    
+=====
+#slice (2, 3, 4): 2 6 10
+====
+slice (2, 3, 4): 2 3 4
+====
+slice (2, 3, 4):
+====
+slice (2, 3, 4): 10 6 2 
+
+++++
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+valarray<int> sample (14); 
+for (int i=0; i<14; ++i) sample[i]=i; 
+size_t start=1;   size_t lengths[]= {2,3};   size_t strides[]= {7,2}; 
+gslice mygslice (start,valarray<size_t>(lengths,2), valarray<size_t>(strides,2)); 
+valarray<int> data = sample[mygslice]; 
+cout << "gslice:"; 
+for (int i=0; i<data.size(); i++)    cout << ' ' << data[i]; 
+    	
+=====
+#gslice: 1 3 5 8 10 12
+====
+gslice: 1 2 3 7 2 2
+====
+gslice: 14
+====
+gslice: 2 4 6 9 11 13 
+
+++++
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+valarray<int> varr = { 20, 40, 60, 80 }; 
+cout << "The size of valarray is: "; 
+cout << varr.size()<< endl; 
+=====
+#The size of valarray is: 4
+====
+The size of valarray is: 20 40 60 80
+====
+The size of valarray is: 5
+====
+The size of valarray is: 3
+
+++++
+
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+valarray<int>  varr = { -20, 40, -50, 60, 80, 0, 0 }; 
+cout << "The size of valarray is: "; 
+cout << varr.size()<< endl; 
+====
+#The size of valarray is: 7
+====
+The size of valarray is: 5
+====
+The size of valarray is: 6
+=====
+The size of valarray is: 4
+
+++++
+
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+valarray<int> varr = { 10, 20, 30, 40, 50 }; 
+cout << "valarray contains="; 
+for (auto i = begin(varr); i != end(varr); i++) { 
+        cout << ' ' << *i;     } 
+====
+#valarray contains = 10 20 30 40 50
+====
+valarray contains = 5
+====
+valarray contains = 50
+====
+valarray contains = 10
+
+++++
+
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+valarray<int> varr = { -10, -20, -30, -40 }; 
+cout << "valarray contains="; 
+for (auto i = begin(varr); i != end(varr); i++) { 
+cout << ' ' << *i;     } 
+====
+#valarray contains = -10  -20  -30  -40
+====
+valarray contains =4
+====
+valarray contains =5
+====
+valarray contains =3
+
+++++
+
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+valarray<int> varr = { 15, 10, 30, 33, 40 }; 
+cout << "The sum of valarray is = "  << varr.sum() << endl; 
+====
+#The sum of valarray is = 128
+====
+The sum of valarray is = 15 10 30 33 40
+====
+The sum of valarray is =129
+====
+The sum of valarray is = 40 10 30 33 15
+
+++++
+
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+valarray<int> varr = { 1, 2, 3, 4, 5 }; 
+cout << "The sum of valarray is = "  << varr.sum() << endl; 
+====
+#The sum of valarray is =15
+====
+The sum of valarray is =1 2 3 4 5
+====
+The sum of valarray is =16
+====
+The sum of valarray is =1 2 4 3 5
+
++++++
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+complex<double> mycomplex(10.0, 2.0); 
+  cout << "Real part: " << real(mycomplex) << endl; 
+  cout << "Imaginary part: " << imag(mycomplex) << endl; 
+====
+#Real part: 10
+ Imaginary part: 2
+====
+Real part: 10.0
+Imaginary part: 2.0
+====
+Real part: real(mycomplex)
+Imaginary part: imag(mycomplex)
+====
+Real part: 1
+Imaginary part: 2
+
+++++
+
+Dasturni bajargandan so'ng ekranda nima paydo bo'ladi
+
+  typedef complex<double> point; 
+  #define x real() 
+  #define y imag() 
+  int main()  {     point P(2.0, 3.0); 
+    cout << "The X-coordinate of point P is: " << P.x << endl; 
+    cout << "The Y-coordinate of point P is: " << P.y << endl; 
+      return 0; } 
+====
+#The X-coordinate of point P is: 2
+The Y-coordinate of point P is: 3
+====
+The X-coordinate of point P is: 2.0
+The Y-coordinate of point P is: 3.0
+====
+Kompilyatsiyada hatolik
+=====
+The X-coordinate of point P is: 4.0
+The Y-coordinate of point P is: 3.0
+
+++++
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+    cout << "Square root of -9 is ="; 
+    cout << sqrt(complex<double>(-9, 0)) << endl; 
+    cout << "Square root of (-9, -0), is = "; 
+    cout << sqrt(complex<double>(-9, -0.0)) << endl; 
+    
+=====
+#Square root of -9 is =(0, 3)
+====
+Square root of (-9, -0), is = (0, -3)
+====
+kompilyasiyada xatolik
+====
+Square root of -4 is =(0, 2)
+
+++++
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+  valarray<int> varr = { 3, 2, 1, 4, 5 }; 
+  cout << "The smallest element" << " of valarray is = "
+         << varr.min() << endl;     
+====
+#The smallest element of valarray is = 1
+====
+The smallest element of valarray is =0
+====
+The smallest element of valarray is =2
+====
+The smallest element of valarray is =-2
+
+++++
+
+Dasturni parchasi bajargandan so'ng ekranda nima paydo bo'ladi
+  valarray<int> varr = { 22, 24, 36, 42, 12 }; 
+  cout << "The smallest element" << " of valarray is = "
+         << varr.min() << endl;     
+====
+#The smallest element of valarray is = 12
+====
+The smallest element of valarray is =0
+====
+The smallest element of valarray is =22
+====
+The smallest element of valarray is =2
+
++++++
+
+Qaysi funktsiya o'z argumentlarida ko'rsatilgan manipulyatsiyalarni bir vaqtning o'zida barcha valarray elementlariga qo'llaydi va 
+manipulyatsiyalangan qiymatlarga ega yangi valarray ni qaytaradi?
+====
+#apply ()
+====
+sum ()
+====
+div ()
+====
+mod()
+
++++++
+
+Qaysi funksiya bir vaqtning o'zida barcha valarray  elementlarining yig'indisini qaytaradi?
+====
+#sum ()
+====
+apply ()
+====
+div ()
+====
+mod()
+
+++++
+
+Qaysi funksiya bu yoki boshqa usulda qayta ishlanadigan to’plam ostilari, massiv elementlari oraliq qiymatlarini aniqlaydi?
+====
+#slice()
+====
+complex()
+====
+valarray()
+====
+gslice()
+
+++++
+
+slice () funksiyasining birinchi parametri nimani anglatadi?
+====
+#Tanlash orqali amalga oshirilgan massiv elementining indeksi, masalan indeks nolga teng bo’lsa, demak tanlov massivning birinchi elementidan boshlanadi
+====
+Tanlovdagi massiv elementlar soni
+====
+Tanlov qadami, masalan qadam 2 ga teng bo’lsa, har ikkinchi element to’plamga qo’shilishini anglatadi
+====
+To’g’ri javob berilmagan
+
+++++
+
+slice () funksiyasining ikkinchi parametri nimani anglatadi?
+====
+#Tanlanishi kerak bo’lgan massiv elementlar soni 
+====
+Tanlash orqali amalga oshirilgan massiv elementining indeksi, masalan indeks nolga teng bo’lsa, demak tanlov massivning birinchi elementidan boshlanadi
+====
+Tanlov qadami, masalan qadam 2 ga teng bo’lsa, har ikkinchi element to’plamga qo’shilishini anglatadi
+====
+To’g’ri javob berilmagan
+
+++++
+slice () funksiyasining uchunchi parametri nimani anglatadi?
+=====
+#Tanlov qadami, masalan qadam 2 ga teng bo’lsa, har ikkinchi element to’plamga qo’shilishini anglatadi
+====
+Tanlanishi kerak bo’lgan massiv elementlar soni
+====
+Tanlash orqali amalga oshirilgan massiv elementining indeksi, masalan indeks nolga teng bo’lsa, demak tanlov massivning birinchi elementidan boshlanadi
+====
+To’g’ri javob berilmagan
+
+++++
+C ++ 98 da paydo bo'lgan va massivlarda matematik operatsiyalarni samarali saqlash va ta'minlash uchun ishlatiladigan maxsus konteynet nima?
+====
+#valarray
+====
+complex
+====
+slice
+====
+gslice
+
+++++
+
+Visual Studio dasturining Windows Forms Application rejimida  Ctrl + Alt + L tugmachalar bosilsa…
+====
+#Asosiy muloqot  oynasining oxirgi marta ochilgan joyda Yechimlar  oynasi (Solution Exploler) oynasi ochiladi.
+====
+Asosiy muloqot  oynasining o’ng qismida  yechimlar  oynasi (Solution Exploler) oynasi ochiladi.
+====
+Asosiy muloqot  oynasining chap qismida  yechimlar  oynasi (Solution Exploler) oynasi ochiladi.
+====
+Asosiy muloqot  oynasining pastki qismida  yechimlar  oynasi (Solution Exploler) oynasi ochiladi.
+
+++++
+
+Visual Studio dasturining Windows Forms Application rejimida Yechimlar  (Solution Expoler) oynasini ochish uchun…
+====
+#View-> Solution Exploler
+====
+Project-> Solution Exploler
+====
+Tools-> Solution Exploler
+====
+Ctrl + Alt + X
+
+++++
+
+Visual Studio dasturining Windows Forms Application rejimida komponentalar panelini (Toolbox) oynasini ochish uchun…
+====
+#View-> Toolbox
+====
+Project-> Toolbox
+====
+Tools-> Toolbox
+====
+Ctrl + Alt + L
+
+++++
+
+Visual Studio dasturining Windows Forms Application rejimida   Ctrl + Alt + X  tugmashalar bosilsa…
+====
+#Asosiy muloqot  oynasining oxirgi marta ochilgan joyda komponentalar paneli  (Toolbox) oynasi ochiladi.
+====
+Asosiy muloqot  oynasining oxirgi marta ochilgan joyda Yechimlar  oynasi (Solution Exploler) oynasi ochiladi.
+====
+Asosiy muloqot  oynasining chap qismida  komponentalar paneli  (Toolbox) oynasi ochiladi.
+====
+Asosiy muloqot  oynasining ishchi sohasida  yechimlar  oynasi (Solution Exploler) oynasi ochiladi.
+
+++++
+
+Visual Studio dasturining Windows Forms Application rejimida   Ctrl + \E tugmashalar bosilsa…
+====
+#Asosiy muloqot  oynasining pastki qismida Kompilyatsiya jarayonida topilgan xatolar (Error List) oynasi ochiladi.
+====
+Asosiy muloqot  oynasining oxirgi marta ochilgan joyda komponentalar paneli  (Toolbox) oynasi ochiladi.
+====
+Asosiy muloqot  oynasining oxirgi marta ochilgan joyda Yechimlar  oynasi (Solution Expoler) oynasi ochiladi.
+====
+Proektni tugatish (End) jarayoni ishga tushadi
+
+++++
+
+Kompilyatsiya jaraonida topilgan xatolarni ko’rish uchun…
+====
+#View-> Error List
+====
+Project-> Error List
+====
+Tools-> Error List
+====
+Ctrl + Alt + E
+
+++++
+
+Asosiy muloqot  oynasining uskunalar panelini  boshqarish (yopish, qo’shish) qanday amalga oshirsa bo’ladi?
+====
+#View-> Toolbars
+====
+Project-> Toolbars
+====
+Tools-> Toolbars
+====
+Ctrl + Alt + T
+
+++++
+
+Yaratilgan proektni kompilyasiyaga berish qanday amalga oshirsa bo’ladi?
+====
+#Ctrl+Shift+B  yoki   Build -> Build Solution
+====
+Ctrl+Alt+B  yoki   Build -> Solution
+====
+F1  yoki   Build -> Build Solution
+====
+F9  yoki   Build -> Solution
+
+++++
+
+Yaratilgan proektni ishga tushirish qanday amalga oshirsa bo’ladi?
+====
+#F5  yoki   Debug -> Start Debugging    
+====
+F7  yoki   Debug -> Start Debugging 
+====
+F7  yoki   Build -> Start Debugging   
+====
+F5  yoki   Debug -> Start    
+
+++++
+
+Proektga yangi sinf qo’shishni qanday amalga oshirsa  bo’ladi?
+====
+#Project -> Add Class
+====
+View -> Add Class
+====
+Tools-> Add Class
+====
+Shift + Alt + C
+
+++++
+
+Proektga yangi сpp formatdagi faylni qo’shishni qanday amalga oshirsa  bo’ladi?
+====
+#Project -> Add New Item
+====
+View -> Add New Item
+====
+Project -> Add New-> Item
+====
+Ctrl + Alt + A
+
+++++
+
+Proektga yangi сpp formatdagi faylni qo’shishni qanday amalga oshirsa  bo’ladi?
+====
+#Ctrl + Shift + A
+====
+Shift +Ctrl + A
+====
+Ctrl + Shift + F
+====
+Shift +Alt+ F
+
+++++
+
+Label komponentasi nimaga mo'ljallangan ?
+====
+#Yorliq komponentasi matnli ma'lumotlarni aks ettirish uchun   mo'ljallangan.
+====
+Komponentadan dasturga kirish uchun foydalaniladi.
+====
+Raqamli qiymatni satrga aylantirilish uchun mo’ljallangan.
+====
+Rasmlar manziligi havolani o’rnatish uchun mo’ljallangan.
+ 
+++++
+TextBox komponentasini vazifasi nimadan iborat?
+====
+#TextBox komponenti klaviaturadan ma'lumotlarni kiritish uchun   mo'ljallangan .
+====
+Komponentaning konfiguratsiyasiga qarab, tahrirlash maydoniga bir yoki bir nechta matn satrlarini kiritish uchun  mo'ljallangan .
+====
+Komponent buyruq tugmachasidir.
+====
+Yorliq komponentasi matnli ma'lumotlarni aks ettirish uchun   mo'ljallangan.
+ 
+++++
+
+Button  komponentasi nimaga mo'ljallangan ?
+====
+#Komponenta  buyruqlarni bajarish uchun mo’ljallangan.
+====
+Komponenta  klaviaturadan ma'lumotlarni kiritish  uchun mo'ljallangan .
+====
+Komponentning konfiguratsiyasiga qarab, tahrirlash maydoniga bir yoki bir nechta matn satrlarini kiritish uchun  mo'ljallangan .
+====
+Yorliq komponentasi matnli ma'lumotlarni aks ettirish uchun   mo'ljallangan.
